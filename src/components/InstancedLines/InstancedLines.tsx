@@ -1,6 +1,6 @@
 import type { Point2D, Point3D } from '../../types';
 import * as THREE from 'three'
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 
 export interface Props {
   items: Point2D[];
@@ -9,8 +9,7 @@ export interface Props {
 }
 
 const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
-  const meshRef = useRef<any>(null);
-
+  const meshRef = useRef<THREE.InstancedMesh>(null);
 
   useEffect(() => {
     if (!meshRef?.current) {
@@ -21,9 +20,8 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
 
     const tempObject = new THREE.Object3D();
     let id = 0;
-    for (const [x, y] of items) {
-      tempObject.position.set(x, y, 0);
-      tempObject.scale.set(1, 1, 1);
+    for (const [x,z] of items) {
+      tempObject.position.set(x - dx, 0, z - dz1);
       tempObject.updateMatrix();
       mesh.setMatrixAt(id, tempObject.matrix);
       id += 1;
@@ -31,30 +29,32 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
     mesh.instanceMatrix.needsUpdate = true;
   }, []);
   
-
-  const vertices = new Float32Array([
-    -1, -1, 0,
-    1, -1, 0,
-    1, 1, 0,
-  
-    1, 1, 0,
-    -1, 1, 0,
-    -1, -1, 0
-  ]);
-  
+  const vertices = useMemo(() => {
+    const w = dx * 2;
+    const h = dz2 - dz1;
+    return new Float32Array([
+      0, 0, 0,
+      w, 0, 0,
+      0, 0, h,
+    
+      w, 0, 0,
+      w, 0, h,
+      0, 0, h
+    ]);
+  }, []);
 
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
-      <bufferGeometry  attach="geometry">
-        <bufferAttribute 
-          attachObject={["attributes", "position"]}
+      <bufferGeometry>
+        <bufferAttribute         
+          attach="attributes-position"
           args={[vertices, 3]}
           count={vertices.length / 3}
           itemSize={3}
           array={vertices}          
         />
-      </bufferGeometry>
-      <meshBasicMaterial attach="material" side={THREE.DoubleSide} color="red" />
+      </bufferGeometry>        
+      <meshStandardMaterial attach="material" color="red" />
     </instancedMesh>
   );
 };

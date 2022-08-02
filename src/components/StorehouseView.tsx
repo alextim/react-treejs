@@ -5,6 +5,9 @@ import { OrbitControls, Stats } from '@react-three/drei';
 
 import { generateData, linesOffset } from '../helpers/generate-data';
 
+import Boxes from './InstancedBoxes';
+import Lines from './InstancedLines';
+
 // import Boxes from './SimpleBoxes';
 // import Lines from './SimpleLines';
 
@@ -27,13 +30,12 @@ const Lights = () => (
   </group>
 );
 
-const Dima = () => {
+const StorehouseView = () => {
   const domContent = useRef<HTMLCanvasElement>(null);
   const [aspect, setAspect] = useState(1);
 
-  // const { data, linesData } = useMemo(() => generateData(options.blocksX, options.blocksZ, options.minColumnsInBlock), []);
-  const { data, linesData } = generateData(options.blocksX, options.blocksZ, options.minColumnsInBlock);
-  /*
+  const { data, linesData } = useMemo(() => generateData(options.blocksX, options.blocksZ, options.minColumnsInBlock), []);
+
   useEffect(() => {
     const resizeHandler = () => {
       const el: HTMLCanvasElement = domContent.current!;
@@ -43,28 +45,28 @@ const Dima = () => {
     window.addEventListener('resize', resizeHandler);
     return () => window.removeEventListener('resize', resizeHandler);
   }, []);
-`*/
+
+  //       <Stats showPanel={0}/>
+
   return (
     <Canvas ref={domContent} 
-      gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio/* gammaFactor: 2.2, gammaOutput: true */ }}
-      camera={{fov: 35, position: [-4, 4, 10], near: 0.1, far: 1000}}
+      gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio }}
+      camera={{aspect, fov: 35, position: [-4, 4, 10], near: 0.1, far: 1000}}
       style={{
         width: "100vw",
         height: "100vh",
         overflow: 'hidden',
       }}
     >
-        {/*
-        <Boxes items={[]} />
-        <Lines items={linesData} offset={linesOffset} color={options.edgeColor} />
-    */}
       <color attach="background" args={[0, 0, 0xffff]} />
       <primitive object={new THREE.AxesHelper(10)} />
       <Lights />
-      <OrbitControls /> 
+      <Boxes items={data} />
+      <Lines items={linesData} offset={linesOffset} color={options.edgeColor} />
+      <OrbitControls />
       <Stats />
     </Canvas>
   );
 };
 
-export default Dima; 
+export default StorehouseView; 

@@ -1,7 +1,7 @@
-import Dima from './components/Dima';
+import StorehouseView from './components/StorehouseView';
 
 export default function App() {
   return (
-    <Dima />
+    <StorehouseView />
   );
 }
