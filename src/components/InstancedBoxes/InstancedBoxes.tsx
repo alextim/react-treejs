@@ -36,8 +36,9 @@ const InstancedBoxes = ({ items }: Props) => {
       id += 1;
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
+    console.log('useEffect')
   }, [items]);
-
+  console.log('render')
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
       <boxGeometry args={geometryArgs} />
