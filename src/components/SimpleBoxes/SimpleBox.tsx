@@ -1,17 +1,18 @@
+import { Material, BoxBufferGeometry, EdgesGeometry } from 'three';
 import type { Point3D } from '../../types';
-
+import { memo } from 'react';
 export interface Props {
   position: Point3D;
-  color: string;
+  material: Material;
+  geometry: BoxBufferGeometry;
+  lineMaterial: Material,
+  lineGeometry: EdgesGeometry,
 }
 
-const geometryArgs: Point3D = [1, 1, 1];
-
-const SimpleBox = ({ position, color }: Props) => (
-  <mesh position={position}>
-    <meshBasicMaterial color={color} />
-    <boxGeometry args={geometryArgs} />
-  </mesh>    
+const SimpleBox = ({ position, material, geometry, lineMaterial, lineGeometry }: Props) => (
+  <mesh position={position} material={material} geometry={geometry}>
+    {/*<lineSegments material={lineMaterial} geometry={lineGeometry} />*/}
+  </mesh>
 );
 
 export default SimpleBox;

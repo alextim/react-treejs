@@ -1,48 +1,47 @@
-import type { Point3D } from '../../types';
-import * as THREE from 'three'
 import { useEffect, useRef, useMemo } from 'react';
+import * as THREE from 'three'
 
-const geometryArgs: Point3D = [1, 1, 1];
+import type { Point3D, DataItem } from '../../types';
+import { BOX_SIZE } from '../../constants';
+import { palettesColors } from '../../helpers/palettesMatertials';
 
-const hexToNum = (hex: string) => {
-  const s = hex.replace('#', '0x');
-  return Number(s);
-};
+const geometryArgs: Point3D = [BOX_SIZE, BOX_SIZE, BOX_SIZE];
 
-const tempColor = new THREE.Color();
 const tempObject = new THREE.Object3D();
+const tempColor = new THREE.Color();
 
 export interface Props {
-  items: Array<{ position: Point3D, color: string }>;
+  items: DataItem[];
 }
+
+const colorToNum = (key: string | undefined) => key && palettesColors[key] ? palettesColors[key] : palettesColors[0];
 
 const InstancedBoxes = ({ items }: Props) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
-  const colorArray = useMemo(() => Float32Array.from(new Array(items.length).fill(0).flatMap((_, i) => tempColor.set(hexToNum(items[i].color)).toArray())), []);
 
   useEffect(() => {
     if (!meshRef?.current) {
       return;
     }
 
-    const mesh: any = meshRef.current;
-
     let id = 0;
-    for (const { position: [x, y, z] } of items) {
+    for (const { position: [x, y, z], color } of items) {
       tempObject.position.set(x, y, z);
       tempObject.updateMatrix();
-      mesh.setMatrixAt(id, tempObject.matrix);
+      meshRef.current.setMatrixAt(id, tempObject.matrix);
+
+      tempColor.set(colorToNum(color));
+      meshRef.current.setColorAt(id, tempColor);
+
       id += 1;
     }
-    mesh.instanceMatrix.needsUpdate = true;
-  }, []);
-  
+    meshRef.current.instanceMatrix.needsUpdate = true;
+  }, [items]);
+
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
-      <boxGeometry args={geometryArgs}>
-        <instancedBufferAttribute attach="attributes-color" args={[colorArray, 3]} />
-      </boxGeometry>        
-      <meshBasicMaterial toneMapped={false} vertexColors />
+      <boxGeometry args={geometryArgs} />
+      <meshBasicMaterial />
     </instancedMesh>
   );
 };

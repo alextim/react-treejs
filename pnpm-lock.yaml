@@ -1,34 +1,38 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@react-three/drei': ^9.19.5
-  '@react-three/fiber': ^8.2.2
-  '@types/react': ^18.0.15
+  '@react-three/drei': ^9.19.7
+  '@react-three/fiber': ^8.3.1
+  '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
+  '@types/shortid': ^0.0.29
   '@types/three': ^0.143.0
   '@vitejs/plugin-react': ^2.0.0
   gh-pages: ^4.0.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  shortid: ^2.2.16
   three: ^0.143.0
   typescript: ^4.7.4
-  vite: ^3.0.4
+  vite: ^3.0.5
 
 dependencies:
-  '@react-three/drei': 9.19.5_ll26hgvpzy7rx7d4zfmuh3rava
-  '@react-three/fiber': 8.2.2_f72olm6mn3unzgg4exeiaoxanm
+  '@react-three/drei': 9.19.7_ospzrsobolq7mqt55xfmhtprxe
+  '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  shortid: 2.2.16
   three: 0.143.0
 
 devDependencies:
-  '@types/react': 18.0.15
+  '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
+  '@types/shortid': 0.0.29
   '@types/three': 0.143.0
-  '@vitejs/plugin-react': 2.0.0_vite@3.0.4
+  '@vitejs/plugin-react': 2.0.0_vite@3.0.5
   gh-pages: 4.0.0
   typescript: 4.7.4
-  vite: 3.0.4
+  vite: 3.0.5
 
 packages:
 
@@ -403,7 +407,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-spring/three/9.5.2_2jq74qomlmyf4s5mlskfgpu2fy:
+  /@react-spring/three/9.5.2_u7wl2qw2rp6o7itvxyi2hrugae:
     resolution: {integrity: sha512-3H7Lv8BJZ3dajh0yJA3m9rEbqz5ZNrTCAkhVOeLqgvBlcWU5qVs4luYA1Z7H4vZnLqVtzv+kHAyg3XIpuTOXhQ==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
@@ -414,7 +418,7 @@ packages:
       '@react-spring/core': 9.5.2_react@18.2.0
       '@react-spring/shared': 9.5.2_react@18.2.0
       '@react-spring/types': 9.5.2
-      '@react-three/fiber': 8.2.2_f72olm6mn3unzgg4exeiaoxanm
+      '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       react: 18.2.0
       three: 0.143.0
     dev: false
@@ -423,8 +427,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.19.5_ll26hgvpzy7rx7d4zfmuh3rava:
-    resolution: {integrity: sha512-cIRNhZaw6TnDOjZ0SjHGKezTgEj+TKSvp/cTd5M4t5FQJslkgLEajqtjQKPoBlDvmvZ7c0pqlzWFqNU0XdoHnw==}
+  /@react-three/drei/9.19.7_ospzrsobolq7mqt55xfmhtprxe:
+    resolution: {integrity: sha512-NEZX6e5if5ZzjbMXfu+4zHoKrZU12druo1O1nY2UCHV3gN/Ubq+nXXK1u7vknpGU3vtEiRpyFMVcMn/pP0MxWw==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -435,8 +439,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.18.9
-      '@react-spring/three': 9.5.2_2jq74qomlmyf4s5mlskfgpu2fy
-      '@react-three/fiber': 8.2.2_f72olm6mn3unzgg4exeiaoxanm
+      '@react-spring/three': 9.5.2_u7wl2qw2rp6o7itvxyi2hrugae
+      '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       '@use-gesture/react': 10.2.17_react@18.2.0
       detect-gpu: 4.0.33
       glsl-noise: 0.0.0
@@ -457,8 +461,8 @@ packages:
       zustand: 3.7.2_react@18.2.0
     dev: false
 
-  /@react-three/fiber/8.2.2_f72olm6mn3unzgg4exeiaoxanm:
-    resolution: {integrity: sha512-NO/tOCYK8SQ2vuM2y2r98054X4SMGYIlHgiVRNaSo6JiXyoT3FN0aIH1nDzhDFJ5N/2C/PKa+yeg2M2/8YDFJg==}
+  /@react-three/fiber/8.3.1_f72olm6mn3unzgg4exeiaoxanm:
+    resolution: {integrity: sha512-5I1fcnE/3Y89MBNtC58N4ZEm962NqlFwBChhS09AVBz9PmD51uwY0z4y6WPMoVVKhUG39CS6iSbTPQwZygkerA==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -497,17 +501,17 @@ packages:
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
     dev: true
 
   /@types/react-reconciler/0.26.7:
     resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
     dependencies:
-      '@types/react': 18.0.15
+      '@types/react': 18.0.17
     dev: false
 
-  /@types/react/18.0.15:
-    resolution: {integrity: sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==}
+  /@types/react/18.0.17:
+    resolution: {integrity: sha512-38ETy4tL+rn4uQQi7mB81G7V1g0u2ryquNmsVIOKUAEIDK+3CUjZ6rSRpdvS99dNBnkLFL83qfmtLacGOTIhwQ==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -515,6 +519,10 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+
+  /@types/shortid/0.0.29:
+    resolution: {integrity: sha512-9BCYD9btg2CY4kPcpMQ+vCR8U6V8f/KvixYD5ZbxoWlkhddNF5IeZMVL3p+QFUkg+Hb+kPAG9Jgk4bnnF1v/Fw==}
+    dev: true
 
   /@types/three/0.143.0:
     resolution: {integrity: sha512-c5PonXOt8xk5q4ygmyjOX4Ec+FA7gwfdcMT/PveE9xrJs/0DDcf2lJkWrhEcmvx2ZefQCQBcogABnGqB0P4OsA==}
@@ -539,7 +547,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vitejs/plugin-react/2.0.0_vite@3.0.4:
+  /@vitejs/plugin-react/2.0.0_vite@3.0.5:
     resolution: {integrity: sha512-zHkRR+X4zqEPNBbKV2FvWSxK7Q6crjMBVIAYroSU8Nbb4M3E5x4qOiLoqJBHtXgr27kfednXjkwr3lr8jS6Wrw==}
     engines: {node: '>=14.18.0'}
     peerDependencies:
@@ -552,7 +560,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.18.6_@babel+core@7.18.10
       magic-string: 0.26.2
       react-refresh: 0.14.0
-      vite: 3.0.4
+      vite: 3.0.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1150,6 +1158,10 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
 
+  /nanoid/2.1.11:
+    resolution: {integrity: sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==}
+    dev: false
+
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -1240,8 +1252,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /postcss/8.4.14:
-    resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
+  /postcss/8.4.16:
+    resolution: {integrity: sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
@@ -1372,6 +1384,12 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
     dev: true
+
+  /shortid/2.2.16:
+    resolution: {integrity: sha512-Ugt+GIZqvGXCIItnsL+lvFJOiN7RYqlGy7QE41O3YC1xbNSeDGIRO7xg2JJXIAj1cAGnOeC1r7/T9pgrtQbv4g==}
+    dependencies:
+      nanoid: 2.1.11
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -1514,8 +1532,8 @@ packages:
     engines: {node: '>= 4'}
     dev: false
 
-  /vite/3.0.4:
-    resolution: {integrity: sha512-NU304nqnBeOx2MkQnskBQxVsa0pRAH5FphokTGmyy8M3oxbvw7qAXts2GORxs+h/2vKsD+osMhZ7An6yK6F1dA==}
+  /vite/3.0.5:
+    resolution: {integrity: sha512-bRvrt9Tw8EGW4jj64aYFTnVg134E8hgDxyl/eEHnxiGqYk7/pTPss6CWlurqPOUzqvEoZkZ58Ws+Iu8MB87iMA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1534,7 +1552,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.14.51
-      postcss: 8.4.14
+      postcss: 8.4.16
       resolve: 1.22.1
       rollup: 2.77.2
     optionalDependencies:

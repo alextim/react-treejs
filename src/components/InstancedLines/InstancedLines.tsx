@@ -8,6 +8,8 @@ export interface Props {
   color: string;
 }
 
+const tempObject = new THREE.Object3D();
+
 const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
 
@@ -16,19 +18,16 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       return;
     }
 
-    const mesh: any = meshRef.current;
-
-    const tempObject = new THREE.Object3D();
     let id = 0;
     for (const [x,z] of items) {
       tempObject.position.set(x - dx, 0, z - dz1);
       tempObject.updateMatrix();
-      mesh.setMatrixAt(id, tempObject.matrix);
+      meshRef.current.setMatrixAt(id, tempObject.matrix);
       id += 1;
     }
-    mesh.instanceMatrix.needsUpdate = true;
+    meshRef.current.instanceMatrix.needsUpdate = true;
   }, []);
-  
+
   const vertices = useMemo(() => {
     const w = dx * 2;
     const h = dz2 - dz1;
@@ -36,7 +35,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       0, 0, 0,
       w, 0, 0,
       0, 0, h,
-    
+
       w, 0, 0,
       w, 0, h,
       0, 0, h
@@ -46,15 +45,15 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
       <bufferGeometry>
-        <bufferAttribute         
+        <bufferAttribute
           attach="attributes-position"
           args={[vertices, 3]}
           count={vertices.length / 3}
           itemSize={3}
-          array={vertices}          
+          array={vertices}
         />
-      </bufferGeometry>        
-      <meshStandardMaterial attach="material" color="red" />
+      </bufferGeometry>
+      <meshBasicMaterial attach="material" color="red" />
     </instancedMesh>
   );
 };
