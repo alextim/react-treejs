@@ -26,7 +26,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       id += 1;
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
-  }, []);
+  }, [items, dx, dz1]);
 
   const vertices = useMemo(() => {
     const w = dx * 2;

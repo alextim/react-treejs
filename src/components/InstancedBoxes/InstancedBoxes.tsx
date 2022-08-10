@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 
 import type { Point3D, DataItem } from '../../types';

@@ -83,7 +83,7 @@ const StorehouseView = () => {
           overflow: 'hidden',
         }}
       >
-        <color attach="background" args={['green']} />
+        <color attach="background" args={[0, 0xfff, 0]} />
         <axesHelper args={[20]} />
         <Lights />
         <Boxes items={data} />
