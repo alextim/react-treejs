@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@react-three/drei': ^9.19.7
+  '@react-three/drei': ^9.21.0
   '@react-three/fiber': ^8.3.1
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
@@ -17,7 +17,7 @@ specifiers:
   vite: ^3.0.5
 
 dependencies:
-  '@react-three/drei': 9.19.7_ospzrsobolq7mqt55xfmhtprxe
+  '@react-three/drei': 9.21.0_ospzrsobolq7mqt55xfmhtprxe
   '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -427,8 +427,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.19.7_ospzrsobolq7mqt55xfmhtprxe:
-    resolution: {integrity: sha512-NEZX6e5if5ZzjbMXfu+4zHoKrZU12druo1O1nY2UCHV3gN/Ubq+nXXK1u7vknpGU3vtEiRpyFMVcMn/pP0MxWw==}
+  /@react-three/drei/9.21.0_ospzrsobolq7mqt55xfmhtprxe:
+    resolution: {integrity: sha512-+j0L9+sfIGIwoR0O/UwtBWW0Oo/AWj9nnvKTtRS4e2awHA872lHdOHL+L5e6jKJyV4ZyjOEkQFE8QaJXDPYgBQ==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'

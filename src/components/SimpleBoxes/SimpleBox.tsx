@@ -15,4 +15,4 @@ const SimpleBox = ({ position, material, geometry, lineMaterial, lineGeometry }:
   </mesh>
 );
 
-export default SimpleBox;
+export default memo(SimpleBox);

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 import shortid from 'shortid';
@@ -11,7 +11,7 @@ import { generateData, linesOffset } from '../helpers/generate-data';
 import Boxes from './InstancedBoxes';
 import Lines from './InstancedLines';
 
-// import Boxes from './SimpleBoxes';
+//import Boxes from './SimpleBoxes';
 // import Lines from './SimpleLines';
 
 const options = {
@@ -47,25 +47,26 @@ const StorehouseView = () => {
     };
     resizeHandler();
     window.addEventListener('resize', resizeHandler);
+    console.log('StorehouseView useEffect')
     return () => window.removeEventListener('resize', resizeHandler);
   }, []);
 
   //       <Stats showPanel={0}/>
 
-  const clickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const clickHandler: React.MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
     e.preventDefault();
 
     setData((prevData) => {
       const shift = prevData.length - initialData.length + BLOCK_X_GAP;
-      const newItem: DataItem= {
+      const newItem: DataItem = {
         id: shortid.generate(),
         position: [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
       };
 
       return prevData.concat(newItem);
     });
-  }
-
+  }, []);
+  console.log('StorehouseView render')
   return (
     <div style={{
       width: "100vw",
@@ -75,8 +76,8 @@ const StorehouseView = () => {
       flexDirection: 'column',
     }}>
       <Canvas ref={domContent}
-        gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio }}
-        camera={{aspect, fov: 35, position: [-4, 4, 10], near: 0.1, far: 1000}}
+        gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
+        camera={{ aspect, fov: 35, position: [-4, 4, 10], near: 0.1, far: 1000 }}
         style={{
           width: "100%",
           height: "90%",

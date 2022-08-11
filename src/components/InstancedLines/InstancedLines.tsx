@@ -26,6 +26,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       id += 1;
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
+    console.log('InstancedLines useEffect')
   }, [items, dx, dz1]);
 
   const vertices = useMemo(() => {
@@ -41,7 +42,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       0, 0, h
     ]);
   }, []);
-
+  console.log('InstancedLines render')
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
       <bufferGeometry>

@@ -17,9 +17,15 @@ export interface Props {
 
 const colorToNum = (key: string | undefined) => key && palettesColors[key] ? palettesColors[key] : palettesColors[0];
 
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+var geo = new THREE.EdgesGeometry( boxGeometry ); // or WireframeGeometry( geometry )
+
+var mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
+
+var wireframe = new THREE.LineSegments(geo, mat);
 
 
-const InstancedBoxes = ({ items }: Props) => {
+const InstancedEdges = ({ items }: Props) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
 
   useEffect(() => {
@@ -39,9 +45,9 @@ const InstancedBoxes = ({ items }: Props) => {
       id += 1;
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
-    console.log('InstancedBoxes useEffect')
+    console.log('InstancedEdges useEffect')
   }, [items]);
-  console.log('InstancedBoxes render');
+  console.log('InstancedEdges render');
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
       <boxBufferGeometry args={geometryArgs} />
@@ -50,4 +56,4 @@ const InstancedBoxes = ({ items }: Props) => {
   );
 };
 
-export default InstancedBoxes;
+export default InstancedEdges;

@@ -13,7 +13,7 @@ const boxGeometry = new THREE.BoxBufferGeometry(BOX_SIZE, BOX_SIZE, BOX_SIZE);
 const lineGeometry = new THREE.EdgesGeometry(boxGeometry);
 
 const lineMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
-
+console.log('SimpleBoxes');
 const SimpleBoxes = ({ items }: Props) => {
   return (<>
     {items.map(({ id, position, color }) => (
