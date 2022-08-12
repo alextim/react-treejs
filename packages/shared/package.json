@@ -1,0 +1,31 @@
+{
+  "name": "at-shared",
+  "version": "0.0.4",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./utils": "./src/utils/index.ts",
+    "./helpers": "./src/helpers/index.ts",
+    "./data/palettes.json": "./data/palettes.json",
+    "./data/blocks.json": "./data/blocks.json",
+    "./package.json": "./package.json"
+  },
+  "types": "./types.d.ts",
+  "scripts": {
+    "create-data": "vite-node scripts/create-data.ts",
+    "typecheck": "tsc --noEmit --pretty"
+  },
+  "dependencies": {
+    "shortid": "^2.2.16",
+    "three": "^0.143.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.2",
+    "@types/shortid": "^0.0.29",
+    "@types/three": "^0.143.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.6",
+    "vite-node": "0.21.1"
+  }
+}

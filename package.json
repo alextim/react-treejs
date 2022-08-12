@@ -1,14 +1,21 @@
 {
-  "name": "react-treejs",
+  "name": "root",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alextim/react-threejs.git"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/**/*"
+  ],
   "scripts": {
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "create-data": "turbo run create-data --scope=at-shared",
+    "dev:react-i": "turbo run dev --scope=react-instanced",
+    "dev:js-i": "turbo run dev --scope=js-instanced",
+    "dev:js-s": "turbo run dev --scope=js-simple",
+    "typecheck": "turbo run typecheck --no-deps --concurrency=1"
   },
   "dependencies": {
     "@react-three/drei": "^9.21.0",
@@ -19,13 +26,18 @@
     "three": "^0.143.0"
   },
   "devDependencies": {
+    "@types/node": "^18.7.2",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/shortid": "^0.0.29",
     "@types/three": "^0.143.0",
-    "@vitejs/plugin-react": "^2.0.0",
-    "gh-pages": "^4.0.0",
+    "@vitejs/plugin-react": "^2.0.1",
+    "turbo": "^1.4.3",
     "typescript": "^4.7.4",
-    "vite": "^3.0.5"
-  }
+    "vite": "^3.0.6"
+  },
+  "engines": {
+    "pnpm": ">=7.0.0"
+  },
+  "packageManager": "pnpm@7.0.0"
 }
