@@ -59,14 +59,16 @@ const App = (container: HTMLElement) => {
 
   window.addEventListener('resize', onWindowResize);
 
-  Boxes({ items: data as any as DataItem[], scene });
-  Lines({ items: linesData as any as Point2D[], offset: linesOffset, scene });
-
   const stats = Stats();
   document.body.appendChild(stats.dom);
 
-  updateCount();
+  console.time('init + first render');
+  Boxes({ items: data as any as DataItem[], scene });
+  Lines({ items: linesData as any as Point2D[], offset: linesOffset, scene });
   render();
+  console.timeEnd('init + first render');
+
+  updateCount();
 	stats.update();
 
   // render

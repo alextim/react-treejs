@@ -62,16 +62,18 @@ const App = (container: HTMLElement) => {
 
   window.addEventListener('resize', onWindowResize);
 
-  const instancedBoxesMesh = Boxes({ items: data as any as DataItem[]});
-  scene.add(instancedBoxesMesh);
-  scene.add(Lines({ items: linesData as any as Point2D[], offset: linesOffset }));
-
   const stats = Stats();
   document.body.appendChild(stats.dom);
 
-  updateCount();
+  console.time('init + first render');
+  const instancedBoxesMesh = Boxes({ items: data as any as DataItem[]});
+  scene.add(instancedBoxesMesh);
+  scene.add(Lines({ items: linesData as any as Point2D[], offset: linesOffset }));
   render();
-	stats.update();
+  console.timeEnd('init + first render');
+
+	updateCount();
+  stats.update();
 
   // render
   function render() {
@@ -119,6 +121,5 @@ const App = (container: HTMLElement) => {
     });
   }
 }
-
 
 export default App;

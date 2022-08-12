@@ -5,3 +5,9 @@ https://jsfiddle.net/juoz5yLv/1/
 
 // lines
 https://codepen.io/prisoner849/pen/XWKYLqW?editors=0010
+
+
+// inst + shaders
+
+https://medium.com/@pailhead011/instancing-with-three-js-part-3-a3fe15bcee3a
+https://github.com/pailhead/three.js/blob/instancing-tutorial/examples/webgl_interactive_cubes.html
