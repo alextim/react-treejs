@@ -1,5 +1,5 @@
 {
-  "name": "react-instanced",
+  "name": "@example/react-instanced",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -11,7 +11,6 @@
   "dependencies": {
     "@react-three/drei": "^9.21.0",
     "@react-three/fiber": "^8.3.1",
-    "at-shared": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "shortid": "^2.2.16",
@@ -24,6 +23,6 @@
     "@types/three": "^0.143.0",
     "@vitejs/plugin-react": "^2.0.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.6"
+    "vite": "^3.0.7"
   }
 }

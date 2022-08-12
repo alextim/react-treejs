@@ -1,4 +1,4 @@
-import { BOX_SIZE,  BLOCK_X_GAP, COLUMN_IN_BLOCK } from '../index';
+import { BOX_SIZE,  BLOCK_X_GAP, COLUMN_IN_BLOCK } from '../constants';
 
 const linesOffset = [
   (BOX_SIZE + BLOCK_X_GAP / 2) / 2,                          // dx

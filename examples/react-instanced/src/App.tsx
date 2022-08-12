@@ -3,18 +3,18 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 import shortid from 'shortid';
 
-import type { DataItem, Point2D } from 'at-shared';
-import { options, BOX_SIZE, BLOCK_X_GAP } from 'at-shared';
+import type { DataItem, Point2D } from '@/at-shared';
+import { options, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
 
-import { linesOffset, getRandomPaletteColorName } from 'at-shared/helpers';
+import { linesOffset, getRandomPaletteColorName } from '@/at-shared';
 
 import Boxes from './components/InstancedBoxes';
 import Lines from './components/InstancedLines';
 //import Boxes from './SimpleBoxes';
 // import Lines from './SimpleLines';
 
-import initialData from 'at-shared/data/palettes.json';
-import linesData from 'at-shared/data/blocks.json';
+import initialData from '@/at-shared/data/palettes.json';
+import linesData from '@/at-shared/data/blocks.json';
 
 const App = () => {
   const domContent = useRef<HTMLCanvasElement>(null);
@@ -39,13 +39,13 @@ const App = () => {
 
     setData((prevData) => {
       const shift = prevData.length - (initialData as any as DataItem[]).length + BLOCK_X_GAP;
-      const newItem: DataItem = {
-        id: shortid.generate(),
-        position: [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
-        color: getRandomPaletteColorName(),
-      };
+      const newItem: DataItem = [
+        shortid.generate(),
+        [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
+        getRandomPaletteColorName(),
+      ];
 
-      return prevData.concat(newItem);
+      return [...prevData, newItem];
     });
   }, []);
   console.log('StorehouseView render')

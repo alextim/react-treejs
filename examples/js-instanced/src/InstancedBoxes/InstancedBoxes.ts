@@ -1,17 +1,14 @@
 import * as THREE from 'three'
 
-import type { DataItem } from 'at-shared';
-import { BOX_SIZE } from 'at-shared';
-
+import type { DataItem } from '@/at-shared';
+import { BOX_SIZE } from '@/at-shared';
 
 export interface Props {
   items: DataItem[];
 }
 
-
 const material = new THREE.MeshBasicMaterial();
 const geometry = new THREE.BoxGeometry(BOX_SIZE, BOX_SIZE, BOX_SIZE);
-
 
 const InstancedBoxes = ({ items }: Props) => {
 

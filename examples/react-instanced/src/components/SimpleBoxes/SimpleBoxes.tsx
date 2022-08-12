@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
-import type { DataItem } from 'at-shared';
-import { BOX_SIZE } from 'at-shared';
-import { getPaletteMaterial } from 'at-shared/helpers';
+import type { DataItem } from '@/at-shared';
+import { BOX_SIZE } from '@/at-shared';
+import { getPaletteMaterial } from '@/at-shared';
 
 import SimpleBox from './SimpleBox';
 export interface Props {
@@ -16,7 +16,7 @@ const lineMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
 console.log('SimpleBoxes');
 const SimpleBoxes = ({ items }: Props) => {
   return (<>
-    {items.map(({ id, position, color }) => (
+    {items.map(([ id, position, color ]) => (
       <SimpleBox key={id} position={position} geometry={boxGeometry} material={getPaletteMaterial(color)} lineMaterial={lineMaterial} lineGeometry={lineGeometry} />
     ))}
   </>);

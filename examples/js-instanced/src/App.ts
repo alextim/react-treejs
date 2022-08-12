@@ -4,16 +4,16 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module';
 
-import type { DataItem, Point2D, Point3D } from 'at-shared';
-import { BOX_SIZE, BLOCK_X_GAP } from 'at-shared';
+import type { DataItem, Point2D } from '@/at-shared';
 
-import { linesOffset, palettesColors, getRandomPaletteColorName } from 'at-shared/helpers';
+import { BOX_SIZE, BLOCK_X_GAP, linesOffset, palettesColors, getRandomPaletteColorName } from '@/at-shared';
+
 
 import Boxes from './InstancedBoxes';
 import Lines from './InstancedLines';
 
-import data from 'at-shared/data/palettes.json';
-import linesData from 'at-shared/data/blocks.json';
+import data from '@/at-shared/data/palettes.json';
+import linesData from '@/at-shared/data/blocks.json';
 const initialDataLength = (data as any as []).length;
 
 
@@ -78,7 +78,7 @@ const App = (container: HTMLElement) => {
   // render
   function render() {
     let id = 0;
-    for (const { position: [x, y, z], color } of data as any as DataItem[]) {
+    for (const [ , [x, y, z], color ] of data as any as DataItem[]) {
       tempObject.position.set(x, y, z);
       tempObject.updateMatrix();
       instancedBoxesMesh.setMatrixAt(id, tempObject.matrix);
@@ -106,11 +106,11 @@ const App = (container: HTMLElement) => {
       e.preventDefault();
 
       const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
-      const newItem: DataItem = {
-        id: shortid.generate(),
-        position: [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
-        color: getRandomPaletteColorName(),
-      };
+      const newItem: DataItem = [
+        shortid.generate(),
+        [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
+        getRandomPaletteColorName(),
+      ];
 
       (data as any as DataItem[]).push(newItem);
       updateCount();

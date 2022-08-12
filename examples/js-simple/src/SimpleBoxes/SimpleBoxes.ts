@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-import type { DataItem } from 'at-shared';
+import type { DataItem } from '@/at-shared';
 
 
 export interface Props {

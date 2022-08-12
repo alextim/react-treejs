@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three'
 
-import type { Point3D, DataItem } from 'at-shared';
-import { BOX_SIZE } from 'at-shared';
-import { palettesColors } from 'at-shared/helpers';
+import type { Point3D, DataItem } from '@/at-shared';
+import { BOX_SIZE } from '@/at-shared';
+import { palettesColors } from '@/at-shared';
 
 const geometryArgs: Point3D = [BOX_SIZE, BOX_SIZE, BOX_SIZE];
 
@@ -25,7 +25,7 @@ const InstancedBoxes = ({ items }: Props) => {
     }
 
     let id = 0;
-    for (const { position: [x, y, z], color } of items) {
+    for (const [, [x, y, z], color ] of items) {
       tempObject.position.set(x, y, z);
       tempObject.updateMatrix();
       meshRef.current.setMatrixAt(id, tempObject.matrix);

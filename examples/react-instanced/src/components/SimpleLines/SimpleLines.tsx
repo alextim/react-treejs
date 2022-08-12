@@ -1,4 +1,4 @@
-import type { Point2D, Point3D } from 'at-shared';
+import type { Point2D, Point3D } from '@/at-shared';
 import { Line } from '@react-three/drei';
 
 export interface Props {

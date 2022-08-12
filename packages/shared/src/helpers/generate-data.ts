@@ -2,9 +2,9 @@
 import shortid from 'shortid';
 import getRandomColor from './getRandomPalleteColorName';
 import { getRandomInt } from '../utils/getRandomInt';
-import type { DataItem, Point2D } from '../../types';
+import type { DataItem, Point2D } from '../types';
 
-import { BOX_SIZE, BLOCK_Z_GAP, BLOCK_X_GAP, COLUMN_IN_BLOCK, BOXES_IN_COLUMN } from '../index';
+import { BOX_SIZE, BLOCK_Z_GAP, BLOCK_X_GAP, COLUMN_IN_BLOCK, BOXES_IN_COLUMN } from '../constants';
 
 export function generateData(blocksX: number, blocksZ: number, minColumnsInBlock: number) {
   const data: DataItem[] = [];
@@ -26,11 +26,11 @@ export function generateData(blocksX: number, blocksZ: number, minColumnsInBlock
         z += BOX_SIZE;
         const lMax = getRandomInt(1, BOXES_IN_COLUMN); // palettes in column
         for (let l = 0; l < lMax; l++) {
-          data.push({
-            id: shortid.generate(),
-            position: [x, y, z],
-            color: getRandomColor(),
-          });
+          data.push([
+            shortid.generate(),
+            [x, y, z],
+            getRandomColor(),
+          ]);
           y += BOX_SIZE;
         }
       }

@@ -8,14 +8,20 @@
   },
   "workspaces": [
     "packages/*",
-    "examples/**/*"
+    "examples/*"
   ],
   "scripts": {
     "create-data": "turbo run create-data --scope=at-shared",
-    "dev:react-i": "turbo run dev --scope=react-instanced",
-    "dev:js-i": "turbo run dev --scope=js-instanced",
-    "dev:js-s": "turbo run dev --scope=js-simple",
-    "typecheck": "turbo run typecheck --no-deps --concurrency=1"
+    "dev:react-i": "turbo run dev --scope=@example/react-instanced",
+    "dev:js-i": "turbo run dev --scope=@example/js-instanced",
+    "dev:js-s": "turbo run dev --scope=@example/js-simple",
+    "build": "turbo run build --no-deps --scope=at-shared",
+    "build:examples": "turbo run build  --concurrency=1 --scope=\"@example/*\"",
+    "preview:react-i": "turbo run preview --scope=@example/react-instanced",
+    "preview:js-i": "turbo run preview --scope=@example/js-instanced",
+    "preview:js-s": "turbo run preview --scope=@example/js-simple",
+    "typecheck": "turbo run typecheck --no-deps --concurrency=1",
+    "clean:all": "rimraf ./**/dist ./**/.pnpm-debug.log ./**/.turbo ./**/coverage ./**/pnpm-lock.yaml ./**/node_modules"
   },
   "dependencies": {
     "@react-three/drei": "^9.21.0",
@@ -34,7 +40,7 @@
     "@vitejs/plugin-react": "^2.0.1",
     "turbo": "^1.4.3",
     "typescript": "^4.7.4",
-    "vite": "^3.0.6"
+    "vite": "^3.0.7"
   },
   "engines": {
     "pnpm": ">=7.0.0"

@@ -8,7 +8,7 @@ import { generateData } from '../src/helpers';
 
 const { data, linesData } = generateData(options.blocksX, options.blocksZ, options.minColumnsInBlock);
 
-const destFolder = path.join(process.cwd(), 'data');
+const destFolder = path.join(process.cwd(), 'dist');
 const palettesFilename = 'palettes.json';
 const blocksFilename = 'blocks.json';
 

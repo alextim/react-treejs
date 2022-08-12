@@ -4,18 +4,18 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import Stats from 'three/examples/jsm/libs/stats.module';
 
-import type { DataItem, Point2D, Point3D } from 'at-shared';
-import { BOX_SIZE, BLOCK_X_GAP } from 'at-shared';
+import type { DataItem, Point2D } from '@/at-shared';
+import { BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
 
-import { linesOffset, getRandomPaletteColorName } from 'at-shared/helpers';
+import { linesOffset, getRandomPaletteColorName } from '@/at-shared';
 
 import Boxes from './SimpleBoxes';
 import Lines from './SimpleLines';
 
 import SimpleBox from './SimpleBoxes/SimpleBox';
 
-import data from 'at-shared/data/palettes.json';
-import linesData from 'at-shared/data/blocks.json';
+import data from '@/at-shared/data/palettes.json';
+import linesData from '@/at-shared/data/blocks.json';
 const initialDataLength = (data as any as []).length;
 
 
@@ -88,11 +88,11 @@ const App = (container: HTMLElement) => {
       e.preventDefault();
 
       const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
-      const newItem: DataItem = {
-        id: shortid.generate(),
-        position: [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
-        color: getRandomPaletteColorName(),
-      };
+      const newItem: DataItem = [
+        shortid.generate(),
+        [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
+        getRandomPaletteColorName(),
+      ];
 
       (data as any as DataItem[]).push(newItem);
 

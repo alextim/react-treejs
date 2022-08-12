@@ -1,4 +1,4 @@
-import type { Point2D, Point3D } from 'at-shared';
+import type { Point2D, Point3D } from '@/at-shared';
 import * as THREE from 'three'
 import { useEffect, useRef, useMemo } from 'react';
 
