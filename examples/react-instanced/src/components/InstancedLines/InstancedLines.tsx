@@ -1,6 +1,7 @@
-import type { Point2D, Point3D } from '@/at-shared';
-import * as THREE from 'three'
 import { useEffect, useRef, useMemo } from 'react';
+import * as THREE from 'three'
+
+import type { Point2D, Point3D } from '@/at-shared';
 
 export interface Props {
   items: Point2D[];
@@ -26,7 +27,6 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       id += 1;
     }
     meshRef.current.instanceMatrix.needsUpdate = true;
-    console.log('InstancedLines useEffect')
   }, [items, dx, dz1]);
 
   const vertices = useMemo(() => {
@@ -42,7 +42,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
       0, 0, h
     ]);
   }, [dx, dz1, dz2]);
-  console.log('InstancedLines render')
+
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length]}>
       <bufferGeometry>

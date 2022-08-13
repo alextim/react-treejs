@@ -1,4 +1,5 @@
 import { Material, BoxBufferGeometry, EdgesGeometry } from 'three';
+
 import type { Point3D } from '@/at-shared';
 
 export interface Props {

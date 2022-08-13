@@ -1,5 +1,5 @@
-import type { Point2D, Point3D } from '@/at-shared';
 import { Line } from '@react-three/drei';
+import type { Point2D, Point3D } from '@/at-shared';
 
 export interface Props {
   items: Point2D[];

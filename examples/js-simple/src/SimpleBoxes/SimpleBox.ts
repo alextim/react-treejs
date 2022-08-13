@@ -6,7 +6,7 @@ import { getPaletteMaterial } from '@/at-shared';
 // import { palettesColors } from 'at-shared';
 
 const geometry = new THREE.BoxGeometry(BOX_SIZE, BOX_SIZE, BOX_SIZE);
-// const material = new THREE.MeshBasicMaterial();
+// const material = new THREE.MeshBasicMaterial ();
 
 const SimpleBox = ([, [x, y, z], color ]: DataItem) => {
   const material = getPaletteMaterial(color);

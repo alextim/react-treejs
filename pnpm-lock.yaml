@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@react-three/drei': ^9.21.0
       '@react-three/fiber': ^8.3.1
-      '@types/node': ^18.7.2
+      '@types/node': ^18.7.3
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@types/shortid': ^0.0.29
@@ -27,7 +27,7 @@ importers:
       shortid: 2.2.16
       three: 0.143.0
     devDependencies:
-      '@types/node': 18.7.2
+      '@types/node': 18.7.3
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/shortid': 0.0.29
@@ -104,14 +104,14 @@ importers:
 
   packages/shared:
     specifiers:
-      '@types/node': ^18.7.2
+      '@types/node': ^18.7.3
       '@types/shortid': ^0.0.29
       '@types/three': ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.7
       vite-node: 0.21.1
     devDependencies:
-      '@types/node': 18.7.2
+      '@types/node': 18.7.3
       '@types/shortid': 0.0.29
       '@types/three': 0.143.0
       typescript: 4.7.4
@@ -588,8 +588,8 @@ packages:
       zustand: 3.7.2_react@18.2.0
     dev: false
 
-  /@types/node/18.7.2:
-    resolution: {integrity: sha512-ce7MIiaYWCFv6A83oEultwhBXb22fxwNOQf5DIxWA4WXvDQ7K+L0fbWl/YOfCzlR5B/uFkSnVBhPcOfOECcWvA==}
+  /@types/node/18.7.3:
+    resolution: {integrity: sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==}
     dev: true
 
   /@types/prop-types/15.7.5:

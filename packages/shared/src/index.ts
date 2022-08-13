@@ -3,7 +3,7 @@
 
 export { BOX_SIZE, BLOCK_Z_GAP, BLOCK_X_GAP, COLUMN_IN_BLOCK, BOXES_IN_COLUMN, options } from './constants';
 
-export { getRandomColor, getRandomInt } from './utils';
+export { getRandomColor, getRandomInt, lightenDarkenColor } from './utils';
 
 export { linesOffset } from './helpers';
 export { generateData } from './helpers';
