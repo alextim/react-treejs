@@ -4,11 +4,6 @@ import * as THREE from 'three'
 import type { Point3D, DataItem } from '@/at-shared';
 import { BOX_SIZE, palettesColors } from '@/at-shared';
 
-const geometryArgs: Point3D = [BOX_SIZE, BOX_SIZE, BOX_SIZE];
-
-const tempObject = new THREE.Object3D();
-const tempColor = new THREE.Color();
-
 type BoxesProps = {
   items: DataItem[];
 };
@@ -20,6 +15,11 @@ export type BoxesHandlers = {
 };
 
 const EXTRA_ITEMS_QTY = 100;
+
+const geometryArgs: Point3D = [BOX_SIZE, BOX_SIZE, BOX_SIZE];
+
+const tempObject = new THREE.Object3D();
+const tempColor = new THREE.Color();
 
 const colorToNum = (key: string | undefined) => key && palettesColors[key] ? palettesColors[key] : palettesColors[0];
 
