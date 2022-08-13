@@ -26,7 +26,7 @@ const colorToNum = (key: string | undefined) => key && palettesColors[key] ? pal
 const InstancedBoxes = React.forwardRef(({ items }: BoxesProps, forwardedRef: any) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
 
-  const hadlers: BoxesHandlers = {
+  const handlers: BoxesHandlers = {
     updateAll() {
       let id = 0;
       for (const [, [x, y, z], color ] of items) {
@@ -62,8 +62,8 @@ const InstancedBoxes = React.forwardRef(({ items }: BoxesProps, forwardedRef: an
     },
   };
 
-  React.useImperativeHandle(forwardedRef, () => hadlers);
-  useEffect(() => void hadlers.updateAll(), []);
+  React.useImperativeHandle(forwardedRef, () => handlers);
+  useEffect(() => void handlers.updateAll(), []);
 
   return (
     <instancedMesh ref={meshRef} args={[null as any, null as any, items.length + EXTRA_ITEMS_QTY]}>
