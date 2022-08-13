@@ -15,7 +15,7 @@
     "dev:react-i": "turbo run dev --scope=@example/react-instanced",
     "dev:js-i": "turbo run dev --scope=@example/js-instanced",
     "dev:js-s": "turbo run dev --scope=@example/js-simple",
-    "build": "turbo run build --no-deps --scope=at-shared",
+    "build:json": "turbo run build --no-deps --scope=at-shared",
     "build:examples": "turbo run build  --concurrency=1 --scope=\"@example/*\"",
     "preview:react-i": "turbo run preview --scope=@example/react-instanced",
     "preview:js-i": "turbo run preview --scope=@example/js-instanced",

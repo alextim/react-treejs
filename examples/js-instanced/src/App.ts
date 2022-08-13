@@ -125,7 +125,7 @@ const App = (container: HTMLElement) => {
     renderer.setSize(container.clientWidth, container.clientHeight);
   }
 
-  const onAddHandler = (e: any, renderFn: () => void) => {
+  const onAddHandler = (e: MouseEvent, renderFn: () => void) => {
     e.preventDefault();
 
     const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;

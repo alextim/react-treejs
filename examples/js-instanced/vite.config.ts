@@ -12,8 +12,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/at-shared/data/blocks.json': path.resolve(sharedPath, 'dist', 'blocks.json'),
-      '@/at-shared/data/palettes.json': path.resolve(sharedPath, 'dist', 'palettes.json'),
+      '@/at-shared/data/blocks.json': path.resolve(sharedPath, 'data', 'blocks.json'),
+      '@/at-shared/data/palettes.json': path.resolve(sharedPath, 'data', 'palettes.json'),
       '@/at-shared': path.resolve(sharedPath, 'src', 'index.ts'),
     },
   },

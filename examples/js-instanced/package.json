@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "at-shared": "workspace:*",
     "shortid": "^2.2.16",
     "three": "^0.143.0"
   },

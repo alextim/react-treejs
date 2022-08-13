@@ -17,11 +17,11 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/at-shared/data/blocks.json": ["../../packages/shared/dist/blocks.json"],
-      "@/at-shared/data/palettes.json": ["../../packages/shared/dist/palettes.json"],
+      "@/at-shared/data/blocks.json": ["../../packages/shared/data/blocks.json"],
+      "@/at-shared/data/palettes.json": ["../../packages/shared/data/palettes.json"],
       "@/at-shared": ["../../packages/shared/src/index.ts"],
     },
   },
-  "include": ["src", "../../packages/shared/src/**/*", "../../packages/shared/dist/**/*"],
+  "include": ["src", "../../packages/shared/src/**/*", "../../packages/shared/data/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
