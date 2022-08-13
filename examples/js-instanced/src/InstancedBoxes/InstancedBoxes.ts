@@ -10,6 +10,8 @@ export interface Props {
 const material = new THREE.MeshBasicMaterial();
 const geometry = new THREE.BoxGeometry(BOX_SIZE, BOX_SIZE, BOX_SIZE);
 
+const EXTRA_ITEMS_QTY = 100;
+
 const InstancedBoxes = ({ items }: Props) => {
 
   /*
@@ -26,7 +28,7 @@ const InstancedBoxes = ({ items }: Props) => {
 		tileGeometry.addGroup(0, 24, 1); //x+,x-,y+,y-
 		tileGeometry.addGroup(24, 12, 0); //z+, z-
   */
-  const mesh = new THREE.InstancedMesh(geometry, material, items.length + 100);
+  const mesh = new THREE.InstancedMesh(geometry, material, items.length + EXTRA_ITEMS_QTY);
   mesh.instanceMatrix.setUsage( THREE.DynamicDrawUsage );
 
 

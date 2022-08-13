@@ -77,6 +77,7 @@ const App = (container: HTMLElement) => {
 
   // render
   function render() {
+    console.time('render');
     let id = 0;
     for (const [ , [x, y, z], color ] of data as any as DataItem[]) {
       tempObject.position.set(x, y, z);
@@ -92,6 +93,30 @@ const App = (container: HTMLElement) => {
     instancedBoxesMesh.instanceColor!.needsUpdate = true;
 
     renderer.render(scene, camera);
+    console.timeEnd('render');
+  }
+
+    // render
+  function renderOne(id: number) {
+    console.time('renderOne');
+    const [, [x, y, z], color] = (data as any as DataItem[])[id];
+    tempObject.position.set(x, y, z);
+    tempObject.updateMatrix();
+    instancedBoxesMesh.setMatrixAt(id, tempObject.matrix);
+
+    tempColor.set(colorToNum(color));
+    instancedBoxesMesh.setColorAt(id, tempColor);
+
+    instancedBoxesMesh.instanceMatrix.needsUpdate = true;
+    instancedBoxesMesh.instanceColor!.needsUpdate = true;
+
+    renderer.render(scene, camera);
+    console.timeEnd('renderOne');
+  }
+
+  function renderLast() {
+    const id = (data as any as DataItem[]).length - 1;
+    renderOne(id);
   }
 
   function onWindowResize() {
@@ -100,25 +125,32 @@ const App = (container: HTMLElement) => {
     renderer.setSize(container.clientWidth, container.clientHeight);
   }
 
+  const onAddHandler = (e: any, renderFn: () => void) => {
+    e.preventDefault();
+
+    const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
+    const newItem: DataItem = [
+      shortid.generate(),
+      [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
+      getRandomPaletteColorName(),
+    ];
+
+    (data as any as DataItem[]).push(newItem);
+    updateCount();
+
+    renderFn();
+
+    stats.update();
+  };
+
   const addBtn = document.getElementById('add-btn') as HTMLButtonElement | null;
   if (addBtn) {
-    addBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    addBtn.addEventListener('click', (e) => onAddHandler(e, render));
+  }
 
-      const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
-      const newItem: DataItem = [
-        shortid.generate(),
-        [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
-        getRandomPaletteColorName(),
-      ];
-
-      (data as any as DataItem[]).push(newItem);
-      updateCount();
-
-      render();
-
-      stats.update();
-    });
+  const addBtn1 = document.getElementById('add-btn-1') as HTMLButtonElement | null;
+  if (addBtn1) {
+    addBtn1.addEventListener('click', (e) => onAddHandler(e, renderLast));
   }
 }
 
