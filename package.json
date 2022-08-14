@@ -13,13 +13,13 @@
   "scripts": {
     "create-data": "turbo run create-data --scope=at-shared",
     "dev": "turbo run dev --scope=@example/react-instanced",
-    "dev:js-i": "turbo run dev --scope=@example/js-instanced",
+    "dev:js": "turbo run dev --scope=@example/js-instanced",
     "dev:js-s": "turbo run dev --scope=@example/js-simple",
     "build:json": "turbo run build --no-deps --scope=at-shared",
     "build": "turbo run build --scope=@example/react-instanced",
     "build:examples": "turbo run build  --concurrency=1 --scope=\"@example/*\"",
     "preview": "turbo run preview --scope=@example/react-instanced",
-    "preview:js-i": "turbo run preview --scope=@example/js-instanced",
+    "preview:js": "turbo run preview --scope=@example/js-instanced",
     "preview:js-s": "turbo run preview --scope=@example/js-simple",
     "typecheck": "turbo run typecheck --no-deps --concurrency=1",
     "clean:all": "rimraf ./**/dist ./**/.pnpm-debug.log ./**/.turbo ./**/coverage ./**/pnpm-lock.yaml ./**/node_modules"
