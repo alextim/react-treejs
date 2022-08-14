@@ -535,7 +535,7 @@ packages:
       '@react-spring/three': 9.5.2_u7wl2qw2rp6o7itvxyi2hrugae
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       '@use-gesture/react': 10.2.18_react@18.2.0
-      detect-gpu: 4.0.34
+      detect-gpu: 4.0.35
       glsl-noise: 0.0.0
       lodash.omit: 4.5.0
       lodash.pick: 4.4.0
@@ -691,7 +691,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001375
-      electron-to-chromium: 1.4.218
+      electron-to-chromium: 1.4.219
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: true
@@ -755,8 +755,8 @@ packages:
       ms: 2.1.2
     dev: true
 
-  /detect-gpu/4.0.34:
-    resolution: {integrity: sha512-dDQ5hZDb/MfeJhza+PygGrOAVwf5PgwuXRQOcm2Yf9Qfkg0fD7VeBFMfgXD2GM465JhkDrfEa+vWtiRbC3b3dQ==}
+  /detect-gpu/4.0.35:
+    resolution: {integrity: sha512-9MBAlaA3FBO761daObW51GGRuenAy90baYVGKVlqmQM1suWwQ6nYPF/ZxFAcJdYa2Dzuvq4DsmyOYVT440CbZg==}
     dependencies:
       webgl-constants: 1.1.1
     dev: false
@@ -765,8 +765,8 @@ packages:
     resolution: {integrity: sha512-Ahum6SewAd1oVMm6Fk8T/zCE0qbzjohhO5pl1Xp5Outl4JKv7jYicfd5vNtkzImx94XE35fhNXVqHk9ajt+6Tg==}
     dev: false
 
-  /electron-to-chromium/1.4.218:
-    resolution: {integrity: sha512-INDylKH//YIf2w67D+IjkfVnGVrZ/D94DAU/FPPm6T4jEPbEDQvo9r2wTj0ncFdtJH8+V8BggZTaN8Rzk5wkgw==}
+  /electron-to-chromium/1.4.219:
+    resolution: {integrity: sha512-zoQJsXOUw0ZA0YxbjkmzBumAJRtr6je5JySuL/bAoFs0DuLiLJ+5FzRF7/ZayihxR2QcewlRZVm5QZdUhwjOgA==}
     dev: true
 
   /esbuild-android-64/0.14.54:
