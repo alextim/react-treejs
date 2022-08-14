@@ -18,12 +18,12 @@ geometry.addGroup( 12, 24, 1 );
 geometry.addGroup( 24, 36, 2 );
 
 const material = [
-  new THREE.MeshBasicMaterial(),
-  new THREE.MeshBasicMaterial( { color: 0x00ff00 } ),
-  new THREE.MeshBasicMaterial( { color: 0x0000ff } ),
+  new THREE.MeshLambertMaterial(),
+  new THREE.MeshLambertMaterial( { color: 0x00ff00 } ),
+  new THREE.MeshLambertMaterial( { color: 0x0000ff } ),
 ];
 */
-const material = new THREE.MeshBasicMaterial();
+const material = new THREE.MeshLambertMaterial();
 
 const tempObject = new THREE.Object3D();
 const tempColor = new THREE.Color();

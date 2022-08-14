@@ -8,6 +8,7 @@ import { options, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
 
 import { linesOffset, getRandomPaletteColorName } from '@/at-shared';
 
+import Lights from './components/Lights';
 import Boxes from './components/InstancedBoxes';
 import type { BoxesHandlers } from './components/InstancedBoxes';
 import Lines from './components/InstancedLines';
@@ -48,6 +49,14 @@ const App = () => {
     boxesRef.current?.updateLast();
   }, []);
 
+  const deleteItem = (id: number | undefined) => {
+    if (id !== undefined) {
+      data.splice(id, 1);
+      boxesRef.current?.updateAll();
+    }
+
+  };
+
   return (
     <div id="content">
       <Canvas ref={domContent}
@@ -61,7 +70,8 @@ const App = () => {
       >
         <color attach="background" args={[0, 0xfff, 0]} />
         <axesHelper args={[20]} />
-        <Boxes ref={boxesRef} items={data} />
+        <Lights />
+        <Boxes ref={boxesRef} items={data} onDoubleClick={deleteItem} />
         <Lines items={linesData as any as Point2D[]} offset={linesOffset} color={options.edgeColor} />
         <OrbitControls makeDefault dampingFactor={0.3} />
         <Stats />
@@ -70,6 +80,9 @@ const App = () => {
         <div>React Instanced</div>
         <button onClick={clickHandler}>add (update one)</button>
         <div><span>Count:</span>{data.length}</div>
+        <div>
+
+        </div>
       </footer>
     </div>
   );

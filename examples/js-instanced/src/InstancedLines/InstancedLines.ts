@@ -24,7 +24,7 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props):  THREE
       0, 0, h
     ]);
 
-  const material = new THREE.MeshBasicMaterial ({ color: 0xff0000 });
+  const material = new THREE.MeshLambertMaterial ({ color: 0xff0000 });
 
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );

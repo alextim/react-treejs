@@ -21,46 +21,11 @@ const App = (container: HTMLElement) => {
   scene.background = new THREE.Color('green');
   scene.add(new THREE.AxesHelper(20));
 
-  const camera = new THREE.PerspectiveCamera(
-    35, // FOV
-    container.clientWidth / container.clientHeight,
-    0.1, // near clipping plane
-    1000, // far clipping plane
-  );
-  camera.position.set(-4, 4, 200);
-  /*
-  const ambientLight = new THREE.AmbientLight(0x404040, 7); // soft white light
-  scene.add(ambientLight);
+  const camera = createCamera();
+  createLights();
+  createControls();
 
-  const spotLight = new THREE.SpotLight( 0xffffff, 3);
-  spotLight.position.set( 100, 100, 1 );
-
-  spotLight.castShadow = true;
-
-  spotLight.shadow.mapSize.width = 1024;
-  spotLight.shadow.mapSize.height = 1024;
-
-  spotLight.shadow.camera.near = 500;
-  spotLight.shadow.camera.far = 4000;
-  spotLight.shadow.camera.fov = 30;
-
-  scene.add( spotLight );
-  */
-
-  const controls = new OrbitControls(camera, container);
-  //static
-  controls.addEventListener('change', render);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  // renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setSize(container.clientWidth, container.clientHeight);
-
-  renderer.setPixelRatio(window.devicePixelRatio);
-
-  //renderer.gammaFactor = 2.2;
-  //renderer.gammaOutput = true;
-
-  renderer.physicallyCorrectLights = true;
+  const renderer = createRenderer();
   container.appendChild(renderer.domElement);
 
   window.addEventListener('resize', onWindowResize);
@@ -78,6 +43,50 @@ const App = (container: HTMLElement) => {
 
 	updateCount();
   stats.update();
+
+  function createCamera() {
+    const camera = new THREE.PerspectiveCamera(
+      35, // FOV
+      container.clientWidth / container.clientHeight,
+      0.1, // near clipping plane
+      1000, // far clipping plane
+    );
+    camera.position.set(-4, 4, 200);
+    return camera;
+  }
+
+  function createLights() {
+    const ambientLight = new THREE.AmbientLight(0x404040, 7); // soft white light
+    scene.add(ambientLight);
+
+    const spotLight = new THREE.SpotLight(0xffffff, 3);
+    spotLight.position.set(100, 100, 1);
+    scene.add(spotLight);
+
+    const spotLight2 = new THREE.SpotLight(0xffffff, 3);
+    spotLight2.position.set(-100, 100, 1);
+    scene.add(spotLight2);
+  }
+
+  function createControls() {
+    const controls = new OrbitControls(camera, container);
+    //static
+    controls.addEventListener('change', render);
+  }
+
+  function createRenderer() {
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    //renderer.gammaFactor = 2.2;
+    //renderer.gammaOutput = true;
+
+    renderer.physicallyCorrectLights = true;
+    return renderer;
+  }
 
   function profiler(timerName: string, fn: () => void) {
     console.time(timerName);
@@ -106,7 +115,7 @@ const App = (container: HTMLElement) => {
     renderer.setSize(container.clientWidth, container.clientHeight);
   }
 
-  const onAddHandler = (e: MouseEvent, renderFn: () => void) => {
+  function onAddHandler(e: MouseEvent, renderFn: () => void) {
     e.preventDefault();
 
     const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
@@ -122,7 +131,7 @@ const App = (container: HTMLElement) => {
     renderFn();
 
     stats.update();
-  };
+  }
 
   const addBtn = document.getElementById('add-btn') as HTMLButtonElement | null;
   if (addBtn) {

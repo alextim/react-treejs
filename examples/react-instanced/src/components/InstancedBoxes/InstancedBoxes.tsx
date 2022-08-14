@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState, useImperativeHandle, forwardRef } from 'react';
 import * as THREE from 'three'
 
 import type { Point3D, DataItem } from '@/at-shared';
@@ -6,6 +6,7 @@ import { BOX_SIZE, palettesColors } from '@/at-shared';
 
 type BoxesProps = {
   items: DataItem[];
+  onDoubleClick: (id: number | undefined) => void;
 };
 
 export type BoxesHandlers = {
@@ -23,34 +24,37 @@ const tempColor = new THREE.Color();
 
 const colorToNum = (key: string | undefined) => key && palettesColors[key] ? palettesColors[key] : palettesColors[0];
 
-const InstancedBoxes = React.forwardRef(({ items }: BoxesProps, forwardedRef: any) => {
+const InstancedBoxes = forwardRef(({ items, onDoubleClick }: BoxesProps, forwardedRef: any) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
+
+  const setItemColor = (id: number) => {
+    const [,,color] = items[id];
+    tempColor.set(colorToNum(color));
+
+    meshRef.current!.setColorAt(id, tempColor);
+  };
+
+  const setItemPos = (id: number) => {
+    const [, [x, y, z]] = items[id];
+    tempObject.position.set(x, y, z);
+    tempObject.updateMatrix();
+    meshRef.current!.setMatrixAt(id, tempObject.matrix);
+  };
 
   const handlers: BoxesHandlers = {
     updateAll() {
-      let id = 0;
-      for (const [, [x, y, z], color ] of items) {
-        tempObject.position.set(x, y, z);
-        tempObject.updateMatrix();
-        meshRef.current!.setMatrixAt(id, tempObject.matrix);
-
-        tempColor.set(colorToNum(color));
-        meshRef.current!.setColorAt(id, tempColor);
-
-        id += 1;
+      const n = items.length;
+      for (let i = 0; i < n; i++) {
+        setItemPos(i);
+        setItemColor(i);
       }
       meshRef.current!.instanceMatrix.needsUpdate = true;
       meshRef.current!.instanceColor!.needsUpdate = true;
     },
 
     updateOne(id: number) {
-      const [, [x, y, z], color] = items[id];
-      tempObject.position.set(x, y, z);
-      tempObject.updateMatrix();
-      meshRef.current!.setMatrixAt(id, tempObject.matrix);
-
-      tempColor.set(colorToNum(color));
-      meshRef.current!.setColorAt(id, tempColor);
+      setItemPos(id);
+      setItemColor(id);
 
       meshRef.current!.instanceMatrix.needsUpdate = true;
       meshRef.current!.instanceColor!.needsUpdate = true;
@@ -62,13 +66,21 @@ const InstancedBoxes = React.forwardRef(({ items }: BoxesProps, forwardedRef: an
     },
   };
 
-  React.useImperativeHandle(forwardedRef, () => handlers);
+  useImperativeHandle(forwardedRef, () => handlers);
   useEffect(() => void handlers.updateAll(), []);
 
   return (
-    <instancedMesh ref={meshRef} args={[null as any, null as any, items.length + EXTRA_ITEMS_QTY]}>
+    <instancedMesh
+      ref={meshRef}
+      args={[null as any, null as any, items.length + EXTRA_ITEMS_QTY]}
+
+      onDoubleClick={(e) => {
+        e.stopPropagation();
+        onDoubleClick(e.instanceId);
+      }}
+    >
       <boxBufferGeometry args={geometryArgs} />
-      <meshBasicMaterial />
+      <meshLambertMaterial />
     </instancedMesh>
   );
 });

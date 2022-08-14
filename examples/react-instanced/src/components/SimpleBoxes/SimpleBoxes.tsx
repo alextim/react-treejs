@@ -12,7 +12,7 @@ export interface Props {
 const boxGeometry = new THREE.BoxBufferGeometry(BOX_SIZE, BOX_SIZE, BOX_SIZE);
 const lineGeometry = new THREE.EdgesGeometry(boxGeometry);
 
-const lineMaterial = new THREE.MeshBasicMaterial ({ color: 0x0000ff });
+const lineMaterial = new THREE.MeshLambertMaterial ({ color: 0x0000ff });
 
 const SimpleBoxes = ({ items }: Props) => {
   return (<>

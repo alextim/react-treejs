@@ -14,7 +14,7 @@ export const palettesColors: Record<string, number> = {
 
 const palettesMaterials: Record<string, THREE.Material> = {};
 Object.entries(palettesColors).forEach(([key, color]) => {
-  palettesMaterials[key] = new THREE.MeshBasicMaterial({ color, wireframe: false /*key === 'frame' || key === 'active'*/ });
+  palettesMaterials[key] = new THREE.MeshLambertMaterial({ color, wireframe: false /*key === 'frame' || key === 'active'*/ });
 });
 
 export default palettesMaterials;
