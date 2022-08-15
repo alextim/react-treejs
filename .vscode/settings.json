@@ -20,19 +20,20 @@
     "typescriptreact"
   ],
   "cSpell.words": [
+    "<br/>",
+    "anonymus",
+    "changesets",
+    "crossorigin",
+    "favicon",
+    "favicons",
+    "frontmatter",
     "googlebot",
+    "outfile",
     "pnpm",
     "pnpx",
     "vite",
-    "changesets",
     "vitest",
-    "outfile",
-    "favicon",
-    "favicons",
-    "crossorigin",
-    "anonymus",
-    "<br/>",
-    "frontmatter"
+    "Zustand"
   ],
   "[json][jsonc]": {
     "editor.formatOnSave": true,

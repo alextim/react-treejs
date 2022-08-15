@@ -24,18 +24,18 @@
     "clean:all": "rimraf ./**/dist ./**/.pnpm-debug.log ./**/.turbo ./**/coverage ./**/pnpm-lock.yaml ./**/node_modules"
   },
   "dependencies": {
-    "@react-three/drei": "^9.21.0",
+    "@react-three/drei": "^9.22.3",
     "@react-three/fiber": "^8.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "shortid": "^2.2.16",
+    "nanoid": "^4.0.0",
     "three": "^0.143.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.3",
+    "@types/node": "^18.7.4",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "@types/shortid": "^0.0.29",
+    "@types/nanoid": "^2.1.0",
     "@types/three": "^0.143.0",
     "@vitejs/plugin-react": "^2.0.1",
     "turbo": "^1.4.3",

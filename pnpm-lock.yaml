@@ -4,33 +4,33 @@ importers:
 
   .:
     specifiers:
-      '@react-three/drei': ^9.21.0
+      '@react-three/drei': ^9.22.3
       '@react-three/fiber': ^8.3.1
-      '@types/node': ^18.7.3
+      '@types/nanoid': ^2.1.0
+      '@types/node': ^18.7.4
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
-      '@types/shortid': ^0.0.29
       '@types/three': ^0.143.0
       '@vitejs/plugin-react': ^2.0.1
+      nanoid: ^4.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
-      shortid: ^2.2.16
       three: ^0.143.0
       turbo: ^1.4.3
       typescript: ^4.7.4
       vite: ^3.0.7
     dependencies:
-      '@react-three/drei': 9.21.0_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.3_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
+      nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      shortid: 2.2.16
       three: 0.143.0
     devDependencies:
-      '@types/node': 18.7.3
+      '@types/nanoid': 2.1.0
+      '@types/node': 18.7.4
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@types/shortid': 0.0.29
       '@types/three': 0.143.0
       '@vitejs/plugin-react': 2.0.1_vite@3.0.7
       turbo: 1.4.3
@@ -39,64 +39,66 @@ importers:
 
   examples/js-instanced:
     specifiers:
-      '@types/shortid': ^0.0.29
+      '@types/nanoid': ^2.1.0
       '@types/three': ^0.143.0
-      shortid: ^2.2.16
+      nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.7
     dependencies:
-      shortid: 2.2.16
+      nanoid: 4.0.0
       three: 0.143.0
     devDependencies:
-      '@types/shortid': 0.0.29
+      '@types/nanoid': 2.1.0
       '@types/three': 0.143.0
       typescript: 4.7.4
       vite: 3.0.7
 
   examples/js-simple:
     specifiers:
-      '@types/shortid': ^0.0.29
+      '@types/nanoid': ^2.1.0
       '@types/three': ^0.143.0
-      shortid: ^2.2.16
+      nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.7
     dependencies:
-      shortid: 2.2.16
+      nanoid: 4.0.0
       three: 0.143.0
     devDependencies:
-      '@types/shortid': 0.0.29
+      '@types/nanoid': 2.1.0
       '@types/three': 0.143.0
       typescript: 4.7.4
       vite: 3.0.7
 
   examples/react-instanced:
     specifiers:
-      '@react-three/drei': ^9.21.0
+      '@react-three/drei': ^9.22.3
       '@react-three/fiber': ^8.3.1
+      '@types/nanoid': ^2.1.0
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
-      '@types/shortid': ^0.0.29
       '@types/three': ^0.143.0
       '@vitejs/plugin-react': ^2.0.1
+      nanoid: ^4.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
-      shortid: ^2.2.16
       three: ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.7
+      zustand: ^4.0.0
     dependencies:
-      '@react-three/drei': 9.21.0_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.3_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
+      nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      shortid: 2.2.16
       three: 0.143.0
+      zustand: 4.0.0_react@18.2.0
     devDependencies:
+      '@types/nanoid': 2.1.0
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@types/shortid': 0.0.29
       '@types/three': 0.143.0
       '@vitejs/plugin-react': 2.0.1_vite@3.0.7
       typescript: 4.7.4
@@ -104,15 +106,15 @@ importers:
 
   packages/shared:
     specifiers:
-      '@types/node': ^18.7.3
-      '@types/shortid': ^0.0.29
+      '@types/nanoid': ^2.1.0
+      '@types/node': ^18.7.4
       '@types/three': ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.7
       vite-node: 0.21.1
     devDependencies:
-      '@types/node': 18.7.3
-      '@types/shortid': 0.0.29
+      '@types/nanoid': 2.1.0
+      '@types/node': 18.7.4
       '@types/three': 0.143.0
       typescript: 4.7.4
       vite: 3.0.7
@@ -520,8 +522,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.21.0_ospzrsobolq7mqt55xfmhtprxe:
-    resolution: {integrity: sha512-+j0L9+sfIGIwoR0O/UwtBWW0Oo/AWj9nnvKTtRS4e2awHA872lHdOHL+L5e6jKJyV4ZyjOEkQFE8QaJXDPYgBQ==}
+  /@react-three/drei/9.22.3_ospzrsobolq7mqt55xfmhtprxe:
+    resolution: {integrity: sha512-25umbMmVYBAljlXuT4sOA1p+0wi3AvMlY4u1pzVZzlp/ncuaBlH+xvq5mI67VwyqkRbm0qPt/L+DxUgkEuLwWQ==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -588,8 +590,14 @@ packages:
       zustand: 3.7.2_react@18.2.0
     dev: false
 
-  /@types/node/18.7.3:
-    resolution: {integrity: sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==}
+  /@types/nanoid/2.1.0:
+    resolution: {integrity: sha512-xdkn/oRTA0GSNPLIKZgHWqDTWZsVrieKomxJBOQUK9YDD+zfSgmwD5t4WJYra5S7XyhTw7tfvwznW+pFexaepQ==}
+    dependencies:
+      '@types/node': 18.7.4
+    dev: true
+
+  /@types/node/18.7.4:
+    resolution: {integrity: sha512-RzRcw8c0B8LzryWOR4Wj7YOTFXvdYKwvrb6xQQyuDfnlTxwYXGCV5RZ/TEbq5L5kn+w3rliHAUyRcG1RtbmTFg==}
     dev: true
 
   /@types/prop-types/15.7.5:
@@ -616,10 +624,6 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
-
-  /@types/shortid/0.0.29:
-    resolution: {integrity: sha512-9BCYD9btg2CY4kPcpMQ+vCR8U6V8f/KvixYD5ZbxoWlkhddNF5IeZMVL3p+QFUkg+Hb+kPAG9Jgk4bnnF1v/Fw==}
-    dev: true
 
   /@types/three/0.143.0:
     resolution: {integrity: sha512-c5PonXOt8xk5q4ygmyjOX4Ec+FA7gwfdcMT/PveE9xrJs/0DDcf2lJkWrhEcmvx2ZefQCQBcogABnGqB0P4OsA==}
@@ -690,14 +694,14 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001375
+      caniuse-lite: 1.0.30001376
       electron-to-chromium: 1.4.219
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: true
 
-  /caniuse-lite/1.0.30001375:
-    resolution: {integrity: sha512-kWIMkNzLYxSvnjy0hL8w1NOaWNr2rn39RTAVyIwcw8juu60bZDWiF1/loOYANzjtJmy6qPgNmn38ro5Pygagdw==}
+  /caniuse-lite/1.0.30001376:
+    resolution: {integrity: sha512-I27WhtOQ3X3v3it9gNs/oTpoE5KpwmqKR5oKPA8M0G7uMXh9Ty81Q904HpKUrM30ei7zfcL5jE7AXefgbOfMig==}
     dev: true
 
   /chalk/2.4.2:
@@ -1110,15 +1114,17 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
 
-  /nanoid/2.1.11:
-    resolution: {integrity: sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==}
-    dev: false
-
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
+
+  /nanoid/4.0.0:
+    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
@@ -1294,12 +1300,6 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
     dev: true
-
-  /shortid/2.2.16:
-    resolution: {integrity: sha512-Ugt+GIZqvGXCIItnsL+lvFJOiN7RYqlGy7QE41O3YC1xbNSeDGIRO7xg2JJXIAj1cAGnOeC1r7/T9pgrtQbv4g==}
-    dependencies:
-      nanoid: 2.1.11
-    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -1555,6 +1555,14 @@ packages:
       picocolors: 1.0.0
     dev: true
 
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /utility-types/3.10.0:
     resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
     engines: {node: '>= 4'}
@@ -1626,4 +1634,20 @@ packages:
         optional: true
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /zustand/4.0.0_react@18.2.0:
+    resolution: {integrity: sha512-OrsfQTnRXF1LZ9/vR/IqN9ws5EXUhb149xmPjErZnUrkgxS/gAHGy2dPNIVkVvoxrVe1sIydn4JjF0dYHmGeeQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
     dev: false

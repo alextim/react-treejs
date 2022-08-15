@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import palettesMaterials from './palettesMatertials';
+import { palettesMaterials }  from './palettesMatertials';
 
 const defaultMaterial = new THREE.MeshLambertMaterial ({ color: 0xff0000 });
 const getDefaultMaterial = () => {
@@ -7,7 +7,5 @@ const getDefaultMaterial = () => {
   return defaultMaterial;
 };
 
-const getPaletteMaterial = (color: string | undefined) => color && palettesMaterials[color] ? palettesMaterials[color] : getDefaultMaterial();
+export const getPaletteMaterial = (color: string | undefined) => color && palettesMaterials[color] ? palettesMaterials[color] : getDefaultMaterial();
 
-
-export default getPaletteMaterial;

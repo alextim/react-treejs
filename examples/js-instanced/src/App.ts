@@ -1,4 +1,4 @@
-import shortid from 'shortid';
+import { nanoid } from 'nanoid';
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -16,7 +16,14 @@ import linesData from '@/at-shared/data/blocks.json';
 
 const initialDataLength = (data as any as []).length;
 
+const addBtn = document.getElementById('add-btn');
+const addBtn1 = document.getElementById('add-btn-1');
+const countElement = document.getElementById('count');
+
 const App = (container: HTMLElement) => {
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2( 1, 1 );
+
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('green');
   scene.add(new THREE.AxesHelper(20));
@@ -28,10 +35,13 @@ const App = (container: HTMLElement) => {
   const renderer = createRenderer();
   container.appendChild(renderer.domElement);
 
-  window.addEventListener('resize', onWindowResize);
-
   const stats = Stats();
   document.body.appendChild(stats.dom);
+
+  window.addEventListener('resize', onWindowResize);
+  document.addEventListener( 'mousemove', onMouseMove );
+  addBtn?.addEventListener('click', (e) => onAddHandler(e, render));
+  addBtn1?.addEventListener('click', (e) => onAddHandler(e, renderLast));
 
   console.time('init');
   const instancedBoxes = new Boxes(data as any as DataItem[]);
@@ -115,12 +125,30 @@ const App = (container: HTMLElement) => {
     renderer.setSize(container.clientWidth, container.clientHeight);
   }
 
+  function onMouseMove(e: MouseEvent) {
+    e.preventDefault();
+    mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - (e.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const mesh = instancedBoxes.mesh;
+
+    const intersection = raycaster.intersectObject( mesh );
+
+    if ( intersection.length > 0 ) {
+      const instanceId = intersection[0].instanceId;
+      console.log(instanceId)
+
+    }
+  }
+
   function onAddHandler(e: MouseEvent, renderFn: () => void) {
     e.preventDefault();
 
     const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
     const newItem: DataItem = [
-      shortid.generate(),
+      nanoid(),
       [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
       getRandomPaletteColorName(),
     ];
@@ -133,17 +161,6 @@ const App = (container: HTMLElement) => {
     stats.update();
   }
 
-  const addBtn = document.getElementById('add-btn') as HTMLButtonElement | null;
-  if (addBtn) {
-    addBtn.addEventListener('click', (e) => onAddHandler(e, render));
-  }
-
-  const addBtn1 = document.getElementById('add-btn-1') as HTMLButtonElement | null;
-  if (addBtn1) {
-    addBtn1.addEventListener('click', (e) => onAddHandler(e, renderLast));
-  }
-
-  const countElement = document.getElementById('count');
   function updateCount() {
     if (countElement) {
       countElement.innerText = (data as any as []).length.toString();

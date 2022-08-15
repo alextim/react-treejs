@@ -1,90 +1,33 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stats } from '@react-three/drei';
-import shortid from 'shortid';
+import { useEffect } from 'react';
 
-import type { DataItem, Point2D } from '@/at-shared';
-import { options, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
+import { options, generateLinesData } from '@/at-shared';
 
-import { linesOffset, getRandomPaletteColorName } from '@/at-shared';
+import { useAppStore } from './store';
 
-import Lights from './components/Lights';
-import Boxes from './components/InstancedBoxes';
-import type { BoxesHandlers } from './components/InstancedBoxes';
-import Lines from './components/InstancedLines';
-//import Boxes from './SimpleBoxes';
-// import Lines from './SimpleLines';
+import Layout from './components/Layout/Layout';
+import Content3D from './components/3d/Content3D';
+// import { BoxesHandlers } from './components/3d/InstancedBoxes';
+import Aside from './components/Aside';
 
-import initialData from '@/at-shared/data/palettes.json';
-import linesData from '@/at-shared/data/blocks.json';
-
-const initialDataLength = (initialData as any as []).length;
+const linesData = generateLinesData();
 
 const App = () => {
-  const domContent = useRef<HTMLCanvasElement>(null);
-  const [aspect, setAspect] = useState(1);
-  const data = initialData as any as DataItem[];
-  const boxesRef = useRef<BoxesHandlers>(null);
+  // const boxesRef = useRef<BoxesHandlers>(null);
+  const actions = useAppStore(({ actions }) => actions);
 
-  useEffect(() => {
-    const resizeHandler = () => {
-      const el: HTMLCanvasElement = domContent.current!;
-      setAspect(el.clientWidth / el.clientHeight);
-    };
-    resizeHandler();
-    window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
-
-  const clickHandler: React.MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
-    e.preventDefault();
-
-    const shift = data.length - initialDataLength + BLOCK_X_GAP;
-    const newItem: DataItem = [
-      shortid.generate(),
-      [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
-      getRandomPaletteColorName(),
-    ];
-    data.push(newItem);
-    boxesRef.current?.updateLast();
-  }, []);
+  useEffect(() => void actions.load(), []);
 
   const deleteItem = (id: number | undefined) => {
     if (id !== undefined) {
-      data.splice(id, 1);
-      boxesRef.current?.updateAll();
+      actions.remove(id)
+      // boxesRef.current?.updateAll();
     }
-
   };
 
   return (
-    <div id="content">
-      <Canvas ref={domContent}
-        gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
-        camera={{ aspect, fov: 35, position: [-4, 4, 200], near: 0.1, far: 1000 }}
-        style={{
-          width: "100%",
-          height: "90%",
-          overflow: 'hidden',
-        }}
-      >
-        <color attach="background" args={[0, 0xfff, 0]} />
-        <axesHelper args={[20]} />
-        <Lights />
-        <Boxes ref={boxesRef} items={data} onDoubleClick={deleteItem} />
-        <Lines items={linesData as any as Point2D[]} offset={linesOffset} color={options.edgeColor} />
-        <OrbitControls makeDefault dampingFactor={0.3} />
-        <Stats />
-      </Canvas>
-      <footer>
-        <div>React Instanced</div>
-        <button onClick={clickHandler}>add (update one)</button>
-        <div><span>Count:</span>{data.length}</div>
-        <div>
-
-        </div>
-      </footer>
-    </div>
+    <Layout aside={<Aside />}>
+      <Content3D linesData={linesData} linesColor={options.edgeColor} onDoubleClick={deleteItem} /> {/* ref={boxesRef} */}
+    </Layout>
   );
 };
 

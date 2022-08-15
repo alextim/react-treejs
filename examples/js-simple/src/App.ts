@@ -1,4 +1,4 @@
-import shortid from 'shortid';
+import { nanoid } from 'nanoid';
 import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -89,7 +89,7 @@ const App = (container: HTMLElement) => {
 
       const shift = (data as any as []).length - initialDataLength + BLOCK_X_GAP;
       const newItem: DataItem = [
-        shortid.generate(),
+        nanoid(),
         [BOX_SIZE, BOX_SIZE * shift, BOX_SIZE],
         getRandomPaletteColorName(),
       ];

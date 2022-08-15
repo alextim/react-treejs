@@ -17,8 +17,6 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/at-shared/data/blocks.json": ["../../packages/shared/data/blocks.json"],
-      "@/at-shared/data/palettes.json": ["../../packages/shared/data/palettes.json"],
       "@/at-shared": ["../../packages/shared/src/index.ts"],
     },
   },

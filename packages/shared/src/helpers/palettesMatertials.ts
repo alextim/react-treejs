@@ -12,12 +12,11 @@ export const palettesColors: Record<string, number> = {
 } as const;
 
 
-const palettesMaterials: Record<string, THREE.Material> = {};
+export const palettesMaterials: Record<string, THREE.Material> = {};
 Object.entries(palettesColors).forEach(([key, color]) => {
   palettesMaterials[key] = new THREE.MeshLambertMaterial({ color, wireframe: false /*key === 'frame' || key === 'active'*/ });
 });
 
-export default palettesMaterials;
 
 export type PalettesMaterialsColors = keyof typeof palettesMaterials
 

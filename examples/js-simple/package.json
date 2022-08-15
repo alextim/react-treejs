@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "shortid": "^2.2.16",
+    "nanoid": "^4.0.0",
     "three": "^0.143.0"
   },
   "devDependencies": {
-    "@types/shortid": "^0.0.29",
+    "@types/nanoid": "^2.1.0",
     "@types/three": "^0.143.0",
     "typescript": "^4.7.4",
     "vite": "^3.0.7"

@@ -1,8 +1,8 @@
-export { default as linesOffset } from './lines-offset';
-export { generateData } from './generate-data';
-export { default as getPaletteMaterial } from './getPaletteMaterial';
-export { default as getRandomPaletteColorName } from './getRandomPalleteColorName';
+export { linesOffset } from './lines-offset';
+export { generateItemsData, generateLinesData } from './generate-data';
+export { getPaletteMaterial } from './getPaletteMaterial';
+export { getRandomPaletteColorName } from './getRandomPalleteColorName';
 
-export { default as palettesMaterials, palettesColors, palettesMaterialsColors } from './palettesMatertials';
+export { palettesMaterials, palettesColors, palettesMaterialsColors } from './palettesMatertials';
 export type { PalettesMaterialsColors } from './palettesMatertials';
 

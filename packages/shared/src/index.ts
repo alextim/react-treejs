@@ -1,12 +1,12 @@
 
 
 
-export { BOX_SIZE, BLOCK_Z_GAP, BLOCK_X_GAP, COLUMN_IN_BLOCK, BOXES_IN_COLUMN, options } from './constants';
-
+export { BOX_SIZE, BLOCK_Z_GAP, BLOCK_X_GAP, COLUMN_IN_BLOCK, BOXES_IN_COLUMN } from './constants';
+export { options } from './options';
 export { getRandomColor, getRandomInt, lightenDarkenColor } from './utils';
 
 export { linesOffset } from './helpers';
-export { generateData } from './helpers';
+export { generateItemsData, generateLinesData } from './helpers';
 export { getPaletteMaterial } from './helpers';
 export { getRandomPaletteColorName } from './helpers';
 
