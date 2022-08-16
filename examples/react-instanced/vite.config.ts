@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import mix from 'vite-plugin-mix';
 import { fileURLToPath } from 'url';
 import path from 'node:path';
 
@@ -8,7 +9,12 @@ const sharedPath = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '.
 // https://vitejs.dev/config/
 export default defineConfig({
   // base: '/test.github.io/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    mix({
+      handler: './handler.ts',
+    }),
+  ],
   /*
   optimizeDeps: {
     exclude: ['@react-three/fiber'],
