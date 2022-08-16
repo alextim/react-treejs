@@ -1,7 +1,7 @@
 import type { DataItem } from "@/at-shared";
 import { useCallback, useState } from "react";
-import { useAppStore } from "../../store";
-import Dropdown from "../Dropdown";
+import { useAppStore } from "../../../../store";
+import Dropdown from "../../../Dropdown";
 
 export const allValue = 'all';
 const optionAll = { value: allValue, label: 'All' };
@@ -28,8 +28,9 @@ const SearchForm = () => {
 
   return (
     <div>
+      <h2>Filter</h2>
       <Dropdown options={options} label="Colors:" value={color} onChange={onChange} />
-      {color !== allValue && (<><div><span>Filtered: </span><span>{filtered}</span></div></>)}
+      {color !== allValue && (<><div><b>Filtered: </b><span>{filtered}</span></div></>)}
     </div>
   );
 };

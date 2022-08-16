@@ -11,18 +11,17 @@ import Boxes from '../InstancedBoxes';
 import Lines from '../InstancedLines';
 import { useAppStore } from '../../../store';
 
-
 type Props = {
   linesData: Point2D[];
   linesColor: string;
-  onDoubleClick: (id: number | undefined) => void;
+  onClick: (id: number | undefined) => void;
 };
 
-const Content3D = forwardRef(({ linesData, linesColor, onDoubleClick }: Props, boxesRef: any) => {
+const Content3D = forwardRef(({ linesData, linesColor, onClick }: Props, boxesRef: any) => {
   const domContent = useRef<HTMLCanvasElement>(null);
   const [aspect, setAspect] = useState(1);
 
-  const { items } = useAppStore();
+  const { items, selectedInstanceId } = useAppStore();
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -42,7 +41,7 @@ const Content3D = forwardRef(({ linesData, linesColor, onDoubleClick }: Props, b
       <color attach="background" args={[0, 0xfff, 0]} />
       <axesHelper args={[20]} />
       <Lights />
-      <Boxes ref={boxesRef} items={items} onDoubleClick={onDoubleClick} />
+      <Boxes ref={boxesRef} items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
       <Lines items={linesData} offset={linesOffset} color={linesColor} />
       <OrbitControls makeDefault dampingFactor={0.3} />
       <Stats />

@@ -4,10 +4,10 @@ importers:
 
   .:
     specifiers:
-      '@react-three/drei': ^9.22.4
+      '@react-three/drei': ^9.22.6
       '@react-three/fiber': ^8.3.1
       '@types/nanoid': ^2.1.0
-      '@types/node': ^18.7.5
+      '@types/node': ^18.7.6
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@types/three': ^0.143.0
@@ -18,10 +18,10 @@ importers:
       three: ^0.143.0
       turbo: ^1.4.3
       typescript: ^4.7.4
-      vite: ^3.0.7
+      vite: ^3.0.8
       vite-plugin-mix: ^0.3.1
     dependencies:
-      '@react-three/drei': 9.22.4_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.6_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
@@ -29,15 +29,15 @@ importers:
       three: 0.143.0
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/three': 0.143.0
-      '@vitejs/plugin-react': 2.0.1_vite@3.0.7
+      '@vitejs/plugin-react': 2.0.1_vite@3.0.8
       turbo: 1.4.3
       typescript: 4.7.4
-      vite: 3.0.7
-      vite-plugin-mix: 0.3.1_vite@3.0.7
+      vite: 3.0.8
+      vite-plugin-mix: 0.3.1_vite@3.0.8
 
   examples/js-instanced:
     specifiers:
@@ -46,7 +46,7 @@ importers:
       nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
-      vite: ^3.0.7
+      vite: ^3.0.8
     dependencies:
       nanoid: 4.0.0
       three: 0.143.0
@@ -54,7 +54,7 @@ importers:
       '@types/nanoid': 2.1.0
       '@types/three': 0.143.0
       typescript: 4.7.4
-      vite: 3.0.7
+      vite: 3.0.8
 
   examples/js-simple:
     specifiers:
@@ -63,7 +63,7 @@ importers:
       nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
-      vite: ^3.0.7
+      vite: ^3.0.8
     dependencies:
       nanoid: 4.0.0
       three: 0.143.0
@@ -71,11 +71,11 @@ importers:
       '@types/nanoid': 2.1.0
       '@types/three': 0.143.0
       typescript: 4.7.4
-      vite: 3.0.7
+      vite: 3.0.8
 
   examples/react-instanced:
     specifiers:
-      '@react-three/drei': ^9.22.4
+      '@react-three/drei': ^9.22.6
       '@react-three/fiber': ^8.3.1
       '@types/nanoid': ^2.1.0
       '@types/react': ^18.0.17
@@ -87,10 +87,11 @@ importers:
       react-dom: ^18.2.0
       three: ^0.143.0
       typescript: ^4.7.4
-      vite: ^3.0.7
+      vite: ^3.0.8
+      vite-plugin-mix: ^0.3.1
       zustand: ^4.0.0
     dependencies:
-      '@react-three/drei': 9.22.4_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.6_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
@@ -102,24 +103,25 @@ importers:
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/three': 0.143.0
-      '@vitejs/plugin-react': 2.0.1_vite@3.0.7
+      '@vitejs/plugin-react': 2.0.1_vite@3.0.8
       typescript: 4.7.4
-      vite: 3.0.7
+      vite: 3.0.8
+      vite-plugin-mix: 0.3.1_vite@3.0.8
 
   packages/shared:
     specifiers:
       '@types/nanoid': ^2.1.0
-      '@types/node': ^18.7.5
+      '@types/node': ^18.7.6
       '@types/three': ^0.143.0
       typescript: ^4.7.4
-      vite: ^3.0.7
+      vite: ^3.0.8
       vite-node: 0.22.0
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
       '@types/three': 0.143.0
       typescript: 4.7.4
-      vite: 3.0.7
+      vite: 3.0.8
       vite-node: 0.22.0
 
 packages:
@@ -524,8 +526,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.22.4_ospzrsobolq7mqt55xfmhtprxe:
-    resolution: {integrity: sha512-C5/IUGTTwkEqrZ2JrNvwBpVdhLppcv2u5TrL7fIbepVJxPcgKqIet3u77weilS99d2lzfH7zaPYhX7EXq9UvxA==}
+  /@react-three/drei/9.22.6_ospzrsobolq7mqt55xfmhtprxe:
+    resolution: {integrity: sha512-nw5/WwnZi3TEJrG7sbBGUGBCVQRADXaKlevveWf8F+++/qmwelX5MFJ0b4LJl7wOxdIzsdOC9kHQ/qJBnT8ZXA==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -595,11 +597,11 @@ packages:
   /@types/nanoid/2.1.0:
     resolution: {integrity: sha512-xdkn/oRTA0GSNPLIKZgHWqDTWZsVrieKomxJBOQUK9YDD+zfSgmwD5t4WJYra5S7XyhTw7tfvwznW+pFexaepQ==}
     dependencies:
-      '@types/node': 18.7.5
+      '@types/node': 18.7.6
     dev: true
 
-  /@types/node/18.7.5:
-    resolution: {integrity: sha512-NcKK6Ts+9LqdHJaW6HQmgr7dT/i3GOHG+pt6BiWv++5SnjtRd4NXeiuN2kA153SjhXPR/AhHIPHPbrsbpUVOww==}
+  /@types/node/18.7.6:
+    resolution: {integrity: sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==}
     dev: true
 
   /@types/prop-types/15.7.5:
@@ -671,7 +673,7 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-react/2.0.1_vite@3.0.7:
+  /@vitejs/plugin-react/2.0.1_vite@3.0.8:
     resolution: {integrity: sha512-uINzNHmjrbunlFtyVkST6lY1ewSfz/XwLufG0PIqvLGnpk2nOIOa/1CACTDNcKi1/RwaCzJLmsXwm1NsUVV/NA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -684,7 +686,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.18.6_@babel+core@7.18.10
       magic-string: 0.26.2
       react-refresh: 0.14.0
-      vite: 3.0.7
+      vite: 3.0.8
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2086,7 +2088,7 @@ packages:
       debug: 4.3.4
       mlly: 0.5.12
       pathe: 0.2.0
-      vite: 3.0.7
+      vite: 3.0.8
     transitivePeerDependencies:
       - less
       - sass
@@ -2095,19 +2097,19 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-mix/0.3.1_vite@3.0.7:
+  /vite-plugin-mix/0.3.1_vite@3.0.8:
     resolution: {integrity: sha512-SL9mbVv+0r7odBx37H8zQsUHSc4TTQPekolf91ajD7hvUPsZgvWFiB6T/fSKWbnLXj2NSZvvx/9zpyQKFakQrg==}
     peerDependencies:
       vite: ^2.2.1
     dependencies:
       '@vercel/nft': 0.10.1
-      vite: 3.0.7
+      vite: 3.0.8
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/3.0.7:
-    resolution: {integrity: sha512-dILhvKba1mbP1wCezVQx/qhEK7/+jVn9ciadEcyKMMhZpsuAi/eWZfJRMkmYlkSFG7Qq9NvJbgFq4XOBxugJsA==}
+  /vite/3.0.8:
+    resolution: {integrity: sha512-AOZ4eN7mrkJiOLuw8IA7piS4IdOQyQCA81GxGsAQvAZzMRi9ZwGB3TOaYsj4uLAWK46T5L4AfQ6InNGlxX30IQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
