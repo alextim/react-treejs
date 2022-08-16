@@ -34,18 +34,18 @@ const Content3D = forwardRef(({ linesData, linesColor, onClick }: Props, boxesRe
   }, []);
 
   return (
-    <Canvas ref={domContent}
-      gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
-      camera={{ aspect, fov: 35, position: [-4, 4, 200], near: 0.1, far: 1000 }}
-    >
-      <color attach="background" args={[0, 0xfff, 0]} />
-      <axesHelper args={[20]} />
-      <Lights />
-      <Boxes ref={boxesRef} items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
-      <Lines items={linesData} offset={linesOffset} color={linesColor} />
-      <OrbitControls makeDefault dampingFactor={0.3} />
-      <Stats />
-    </Canvas>
+      <Canvas ref={domContent}
+        gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
+        camera={{ aspect, fov: 35, position: [-4, 4, 200], near: 0.1, far: 1000 }}
+      >
+        <color attach="background" args={[0, 0xfff, 0]} />
+        <axesHelper args={[20]} />
+        <Lights />
+        <Boxes ref={boxesRef} items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
+        <Lines items={linesData} offset={linesOffset} color={linesColor} />
+        <OrbitControls makeDefault dampingFactor={0.3} />
+        <Stats />
+      </Canvas>
   );
 
 });

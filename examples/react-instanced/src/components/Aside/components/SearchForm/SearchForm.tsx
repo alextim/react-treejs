@@ -28,7 +28,7 @@ const SearchForm = () => {
 
   return (
     <div>
-      <h2>Filter</h2>
+      <h3>Filter</h3>
       <Dropdown options={options} label="Colors:" value={color} onChange={onChange} />
       {color !== allValue && (<><div><b>Filtered: </b><span>{filtered}</span></div></>)}
     </div>

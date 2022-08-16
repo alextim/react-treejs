@@ -10,7 +10,7 @@ const AddForm = () => {
   }, []);
   return (
     <div>
-      <h2>Add new item</h2>
+      <h3>Add new item</h3>
       <button onClick={onClick}>Add</button>
     </div>
   );

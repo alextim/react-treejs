@@ -55,22 +55,20 @@ html, body {
 .app-content {
   grid-area: content;
 
-  padding: 1rem 3rem;
+  padding: 1rem 1.5rem;
   height: 100%;
   width: 100%;
-  max-width: 1200px;
 }
 
 
 .app-aside {
   grid-area: aside;
 
-  padding: 1rem 3rem;
-  max-width: 1200px;
+  padding: 1rem 1.5rem;
 }
 
 .container {
-  padding: 1rem 3rem;
+  padding: 1rem 1.5rem;
   max-width: 1200px;
 }
 
@@ -84,7 +82,25 @@ html, body {
   }
 
   .app-content {
-    padding: 1rem 0 1rem 3rem;
+    padding: 1rem 0 1rem 1.5rem;
   }
+  .app-aside {
+    padding: 1rem 1.5rem 1rem 1rem;
+  }
+}
 
+
+.List {
+  border: 1px solid #d9dddd;
+}
+
+.ListItemEven,
+.ListItemOdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ListItemEven {
+  background-color: #f8f8f0;
 }

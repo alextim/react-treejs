@@ -17,7 +17,7 @@ const SelectedItemInfo = () => {
   const { id, pos: [x, y, z], color } = selectedInstanceId !== undefined ? items[selectedInstanceId] : ({id: '', pos: ['', '', ''] as any as Point3D, color: ''} as DataItem);
   return (
     <div>
-      <h2>Selected Item</h2>
+      <h3>Selected Item</h3>
       <div style={{display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.25rem'}}>
         <b>Instance Id:</b><div>{selectedInstanceId}</div>
         <b>Item Id:</b><div>{id}</div>
