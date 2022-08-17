@@ -1,35 +1,64 @@
-import { FixedSizeGrid as Grid } from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
-import { useAppStore } from "../../../../store";
-import type { DataItem } from "@/at-shared";
+import { FixedSizeList as List } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+
+import type { DataItem } from '@/at-shared';
+import { useAppStore } from '@/store';
 
 const formatFloat = (n: number) => n.toFixed(2);
 const formatPos = ({ pos: [x, y, z] }: DataItem) => `${formatFloat(x)}, ${formatFloat(y)}, ${formatFloat(z)}`;
 
-const ItemList = () => {
-  const { items, filtered } = useAppStore();
-  const filteredItems = items.filter((item) => !item.hidden);
+type ListItem = {
+  instanceId: number;
+  item: DataItem;
+};
 
-  const Cell  = ({ rowIndex, columnIndex, style }: { rowIndex: number, columnIndex: number, style: any }) => (
-    <div className={rowIndex % 2 ? "ListItemOdd" : "ListItemEven"} style={style}>
-      {columnIndex === 0 ? rowIndex : formatPos(filteredItems[rowIndex])}
-    </div>
-  );
+const ItemList = () => {
+  const items = useAppStore((state) => state.items);
+  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
+  const actions = useAppStore((state) => state.actions);
+
+  const filteredItems: ListItem[] = [];
+  for (let i = 0; i < items.length; i++) {
+    if (!items[i].hidden) {
+      filteredItems.push({ instanceId: i, item: items[i] })
+    }
+  }
+
+  const dblClickHandler: React.MouseEventHandler<HTMLElement> = (e) => {
+    e.preventDefault();
+    let el = e.target as HTMLElement;
+    if (!el.className.startsWith('vl_r')) {
+      el = el.parentElement!;
+    }
+    const attr = el.getAttribute('data-id');
+    const instanceId = attr ? parseInt(attr) : undefined;
+    console.log(instanceId)
+    actions.selection.toggle(instanceId);
+  }
+
+  const Row = ({ data, index, style }: { data: ListItem[], index: number, style: any }) => {
+    const { instanceId, item } = data[index];
+    return (
+      <li data-id={instanceId} className={`vl_r${index % 2 ? '' : ' vl_r-0'}${selectedInstanceId === instanceId ?  ' vl_r-active' : ''}`} style={style} onDoubleClick={dblClickHandler}>
+        <div>{index}</div><div>{instanceId}</div><div>{formatPos(item)}</div>
+      </li>
+    );
+  };
 
   return (
     <AutoSizer>
       {({ height, width }) => (
-        <Grid
-          className="List"
-          height={height}
-          rowCount={filtered}
-          rowHeight={35}
+        <List
+          innerElementType="ul"
+          className="vl"
+          itemCount={filteredItems.length}
+          itemSize={35}
           width={width}
-          columnCount={2}
-          columnWidth={100}
+          height={height}
+          itemData={filteredItems}
         >
-          {Cell }
-        </Grid>
+          {Row }
+        </List>
       )}
     </AutoSizer>
   );

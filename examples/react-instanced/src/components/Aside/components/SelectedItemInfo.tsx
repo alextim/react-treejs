@@ -1,10 +1,12 @@
-import { DataItem, Point3D } from '@/at-shared';
 import { useCallback } from 'react';
-import { useAppStore } from '../../../store';
+
+import { DataItem, Point3D } from '@/at-shared';
+import { useAppStore } from '@/store';
 
 const SelectedItemInfo = () => {
-  const { items, selectedInstanceId } = useAppStore();
-  const actions = useAppStore(({ actions }) => actions);
+  const items = useAppStore((state) => state.items);
+  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
+  const actions = useAppStore((state) => state.actions);
 
   const onClick: React.MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
     e.preventDefault();

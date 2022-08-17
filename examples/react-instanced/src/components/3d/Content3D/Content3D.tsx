@@ -1,27 +1,26 @@
 import { useEffect, useState, useRef, forwardRef } from 'react';
-import { Canvas, useStore } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 
-import type { DataItem, Point2D } from '@/at-shared';
-
 import { linesOffset } from '@/at-shared';
+import { useAppStore } from '@/store';
 
 import Lights from '../Lights';
 import Boxes from '../InstancedBoxes';
 import Lines from '../InstancedLines';
-import { useAppStore } from '../../../store';
 
 type Props = {
-  linesData: Point2D[];
   linesColor: string;
   onClick: (id: number | undefined) => void;
 };
 
-const Content3D = forwardRef(({ linesData, linesColor, onClick }: Props, boxesRef: any) => {
+const Content3D = forwardRef(({ linesColor, onClick }: Props, boxesRef: any) => {
   const domContent = useRef<HTMLCanvasElement>(null);
   const [aspect, setAspect] = useState(1);
 
-  const { items, selectedInstanceId } = useAppStore();
+  const items = useAppStore((state) => state.items);
+  const lines = useAppStore((state) => state.lines);
+  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -42,7 +41,7 @@ const Content3D = forwardRef(({ linesData, linesColor, onClick }: Props, boxesRe
         <axesHelper args={[20]} />
         <Lights />
         <Boxes ref={boxesRef} items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
-        <Lines items={linesData} offset={linesOffset} color={linesColor} />
+        <Lines items={lines} offset={linesOffset} color={linesColor} />
         <OrbitControls makeDefault dampingFactor={0.3} />
         <Stats />
       </Canvas>

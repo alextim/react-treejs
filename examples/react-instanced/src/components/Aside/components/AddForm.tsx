@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useAppStore } from '../../../store';
+import { useAppStore } from '@/store';
 
 const AddForm = () => {
   const actions = useAppStore(({ actions }) => actions);

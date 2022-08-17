@@ -1,7 +1,7 @@
-import { useAppStore } from '../../../store';
+import { useAppStore } from '@/store';
 
 const Count = () => {
-  const { items } = useAppStore();
+  const items = useAppStore((state) => state.items);
   return (
     <span>{items.length}</span>
   );

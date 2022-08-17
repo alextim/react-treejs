@@ -4,13 +4,13 @@ importers:
 
   .:
     specifiers:
-      '@react-three/drei': ^9.22.6
+      '@react-three/drei': ^9.22.7
       '@react-three/fiber': ^8.3.1
       '@types/nanoid': ^2.1.0
       '@types/node': ^18.7.6
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
-      '@types/three': ^0.143.0
+      '@types/three': ^0.143.1
       '@vitejs/plugin-react': ^2.0.1
       nanoid: ^4.0.0
       react: ^18.2.0
@@ -21,7 +21,7 @@ importers:
       vite: ^3.0.8
       vite-plugin-mix: ^0.3.1
     dependencies:
-      '@react-three/drei': 9.22.6_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.7_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
@@ -32,7 +32,7 @@ importers:
       '@types/node': 18.7.6
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@types/three': 0.143.0
+      '@types/three': 0.143.1
       '@vitejs/plugin-react': 2.0.1_vite@3.0.8
       turbo: 1.4.3
       typescript: 4.7.4
@@ -42,7 +42,7 @@ importers:
   examples/js-instanced:
     specifiers:
       '@types/nanoid': ^2.1.0
-      '@types/three': ^0.143.0
+      '@types/three': ^0.143.1
       nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
@@ -52,14 +52,14 @@ importers:
       three: 0.143.0
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/three': 0.143.0
+      '@types/three': 0.143.1
       typescript: 4.7.4
       vite: 3.0.8
 
   examples/js-simple:
     specifiers:
       '@types/nanoid': ^2.1.0
-      '@types/three': ^0.143.0
+      '@types/three': ^0.143.1
       nanoid: ^4.0.0
       three: ^0.143.0
       typescript: ^4.7.4
@@ -69,40 +69,48 @@ importers:
       three: 0.143.0
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/three': 0.143.0
+      '@types/three': 0.143.1
       typescript: 4.7.4
       vite: 3.0.8
 
   examples/react-instanced:
     specifiers:
-      '@react-three/drei': ^9.22.6
+      '@react-three/drei': ^9.22.7
       '@react-three/fiber': ^8.3.1
       '@types/nanoid': ^2.1.0
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
-      '@types/three': ^0.143.0
+      '@types/react-virtualized-auto-sizer': ^1.0.1
+      '@types/react-window': ^1.8.5
+      '@types/three': ^0.143.1
       '@vitejs/plugin-react': ^2.0.1
       nanoid: ^4.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-virtualized-auto-sizer: ^1.0.6
+      react-window: ^1.8.7
       three: ^0.143.0
       typescript: ^4.7.4
       vite: ^3.0.8
       vite-plugin-mix: ^0.3.1
       zustand: ^4.0.0
     dependencies:
-      '@react-three/drei': 9.22.6_ospzrsobolq7mqt55xfmhtprxe
+      '@react-three/drei': 9.22.7_ospzrsobolq7mqt55xfmhtprxe
       '@react-three/fiber': 8.3.1_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-virtualized-auto-sizer: 1.0.6_biqbaboplfbrettd7655fr4n2y
+      react-window: 1.8.7_biqbaboplfbrettd7655fr4n2y
       three: 0.143.0
       zustand: 4.0.0_react@18.2.0
     devDependencies:
       '@types/nanoid': 2.1.0
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
-      '@types/three': 0.143.0
+      '@types/react-virtualized-auto-sizer': 1.0.1
+      '@types/react-window': 1.8.5
+      '@types/three': 0.143.1
       '@vitejs/plugin-react': 2.0.1_vite@3.0.8
       typescript: 4.7.4
       vite: 3.0.8
@@ -112,14 +120,14 @@ importers:
     specifiers:
       '@types/nanoid': ^2.1.0
       '@types/node': ^18.7.6
-      '@types/three': ^0.143.0
+      '@types/three': ^0.143.1
       typescript: ^4.7.4
       vite: ^3.0.8
       vite-node: 0.22.0
     devDependencies:
       '@types/nanoid': 2.1.0
       '@types/node': 18.7.6
-      '@types/three': 0.143.0
+      '@types/three': 0.143.1
       typescript: 4.7.4
       vite: 3.0.8
       vite-node: 0.22.0
@@ -526,8 +534,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.22.6_ospzrsobolq7mqt55xfmhtprxe:
-    resolution: {integrity: sha512-nw5/WwnZi3TEJrG7sbBGUGBCVQRADXaKlevveWf8F+++/qmwelX5MFJ0b4LJl7wOxdIzsdOC9kHQ/qJBnT8ZXA==}
+  /@react-three/drei/9.22.7_ospzrsobolq7mqt55xfmhtprxe:
+    resolution: {integrity: sha512-LCjdSo7iaVcZcYuCQcUQxkbGMxO7o4Pnt+5q0sDGui9VYHjCR+33D29ZdAUf7zBsfu7lWMSk7+rPwhzC9cSeAQ==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -619,6 +627,18 @@ packages:
       '@types/react': 18.0.17
     dev: false
 
+  /@types/react-virtualized-auto-sizer/1.0.1:
+    resolution: {integrity: sha512-GH8sAnBEM5GV9LTeiz56r4ZhMOUSrP43tAQNSRVxNexDjcNKLCEtnxusAItg1owFUFE6k0NslV26gqVClVvong==}
+    dependencies:
+      '@types/react': 18.0.17
+    dev: true
+
+  /@types/react-window/1.8.5:
+    resolution: {integrity: sha512-V9q3CvhC9Jk9bWBOysPGaWy/Z0lxYcTXLtLipkt2cnRj1JOSFNF7wqGpkScSXMgBwC+fnVRg/7shwgddBG5ICw==}
+    dependencies:
+      '@types/react': 18.0.17
+    dev: true
+
   /@types/react/18.0.17:
     resolution: {integrity: sha512-38ETy4tL+rn4uQQi7mB81G7V1g0u2ryquNmsVIOKUAEIDK+3CUjZ6rSRpdvS99dNBnkLFL83qfmtLacGOTIhwQ==}
     dependencies:
@@ -629,8 +649,8 @@ packages:
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
 
-  /@types/three/0.143.0:
-    resolution: {integrity: sha512-c5PonXOt8xk5q4ygmyjOX4Ec+FA7gwfdcMT/PveE9xrJs/0DDcf2lJkWrhEcmvx2ZefQCQBcogABnGqB0P4OsA==}
+  /@types/three/0.143.1:
+    resolution: {integrity: sha512-OzXb9Zx7gh0CrKiYnL/u+YeGJW0oDEmvL19vHq+sDmQ5V2Ibglf0I8Yoy/z4XPEv2YTFnYJs4imlEaupuBYRMA==}
     dependencies:
       '@types/webxr': 0.5.0
     dev: true
@@ -1335,6 +1355,10 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /memoize-one/5.2.1:
+    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
+    dev: false
+
   /meshline/2.0.4_three@0.143.0:
     resolution: {integrity: sha512-Jh6DJl/zLqA4xsKvGv5950jr2ukyXQE1wgxs8u94cImHrvL6soVIggqjP+2hVHZXGYaKnWszhtjuCbKNeQyYiw==}
     peerDependencies:
@@ -1645,6 +1669,30 @@ packages:
       react-dom: '>=16.13'
     dependencies:
       debounce: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-virtualized-auto-sizer/1.0.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-7tQ0BmZqfVF6YYEWcIGuoR3OdYe8I/ZFbNclFlGOC3pMqunkYF/oL30NCjSGl9sMEb17AnzixDz98Kqc3N76HQ==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.3.0 || ^16.0.0-alpha || ^17.0.0
+      react-dom: ^15.3.0 || ^16.0.0-alpha || ^17.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-window/1.8.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JHEZbPXBpKMmoNO1bNhoXOOLg/ujhL/BU4IqVU9r8eQPcy5KQnGHIHDRkJ0ns9IM5+Aq5LNwt3j8t3tIrePQzA==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.18.9
+      memoize-one: 5.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false

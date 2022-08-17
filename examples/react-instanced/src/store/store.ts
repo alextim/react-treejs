@@ -3,13 +3,19 @@ import { devtools } from 'zustand/middleware';
 
 import { nanoid } from 'nanoid';
 
-import type { DataItem  } from '@/at-shared';
+import type { DataItem, Point2D  } from '@/at-shared';
 import type { ZustandDevtools } from '.';
 
-import { generateItemsData, getRandomPaletteColorName, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
+import { getRandomPaletteColorName, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
+import { ITEMS_API, LINES_API } from '../api-endpoints';
 
 type State = {
   items: DataItem[];
+  lines: Point2D[];
+
+  loading: boolean;
+  error: any;
+
   added: number;
   filtered: number;
   selectedInstanceId: number | undefined;
@@ -17,7 +23,7 @@ type State = {
 
 type Actions = {
   actions: {
-    load: () => void;
+    loadAsync: () => void;
     add: () => void;
     remove: (instanceId: number) => void;
     selection: {
@@ -37,15 +43,38 @@ export const useAppStore = create<State & Actions, ZustandDevtools >(
   devtools(function (set) {
     return {
       items: [],
+      lines: [],
+
+      loading: false,
+      error: null,
+
       added: 0,
       filtered: 0,
       selectedInstanceId: undefined,
 
       actions: {
-        load: () => set(() => {
-          const data = generateItemsData();
-          return { items: data, filtered: data.length };
-        }),
+        async loadAsync() {
+          set(() => ({ loading: true }));
+          try {
+            const urls = [ITEMS_API, LINES_API];
+            const [items, lines] = await Promise.all(urls.map(async (url) => {
+              const resp = await fetch(url);
+              if (!resp.ok) {
+                const err = await resp.text();
+                throw new Error(err)
+              }
+              const result = await resp.json();
+              return result;
+            }));
+
+             set(() => ({ items, lines }));
+          } catch (err: any) {
+            set({ error: err.toString() })
+          } finally {
+            set(() => ({ loading: false }));
+          }
+        },
+
 
         add: () => set((state) => {
           const shift = state.added + BLOCK_X_GAP;
