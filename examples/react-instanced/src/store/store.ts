@@ -7,7 +7,6 @@ import type { DataItem, Point2D  } from '@/at-shared';
 import type { ZustandDevtools } from '.';
 
 import { getRandomPaletteColorName, BOX_SIZE, BLOCK_X_GAP } from '@/at-shared';
-import { ITEMS_API, LINES_API } from '../api-endpoints';
 
 type State = {
   items: DataItem[];
@@ -38,8 +37,7 @@ type Actions = {
   },
 };
 
-
-export const useAppStore = create<State & Actions, ZustandDevtools >(
+export const useAppStore = create<State & Actions, ZustandDevtools>(
   devtools(function (set) {
     return {
       items: [],
@@ -56,7 +54,10 @@ export const useAppStore = create<State & Actions, ZustandDevtools >(
         async loadAsync() {
           set(() => ({ loading: true }));
           try {
-            const urls = [ITEMS_API, LINES_API];
+            const urls = [
+              import.meta.env.VITE_ITEMS_API,
+              import.meta.env.VITE_LINES_API,
+            ];
             const [items, lines] = await Promise.all(urls.map(async (url) => {
               const resp = await fetch(url);
               if (!resp.ok) {
@@ -75,7 +76,6 @@ export const useAppStore = create<State & Actions, ZustandDevtools >(
           }
         },
 
-
         add: () => set((state) => {
           const shift = state.added + BLOCK_X_GAP;
           const newItem: DataItem = {
@@ -93,7 +93,6 @@ export const useAppStore = create<State & Actions, ZustandDevtools >(
           state.items.splice(instanceId, 1);
           return { items: [...state.items], selectedInstanceId  };
         }),
-
 
         selection: {
           set: (instanceId: number | undefined) => set(() => ({ selectedInstanceId: instanceId })),
