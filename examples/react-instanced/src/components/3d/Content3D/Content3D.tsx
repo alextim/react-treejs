@@ -18,9 +18,9 @@ const Content3D = forwardRef(({ linesColor, onClick }: Props, boxesRef: any) => 
   const domContent = useRef<HTMLCanvasElement>(null);
   const [aspect, setAspect] = useState(1);
 
-  const items = useAppStore((state) => state.items);
-  const lines = useAppStore((state) => state.lines);
-  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
+  const items = useAppStore(({ items }) => items);
+  const lines = useAppStore(({ lines }) => lines);
+  const selectedInstanceId = useAppStore(({ selectedInstanceId }) => selectedInstanceId);
 
   useEffect(() => {
     const resizeHandler = () => {

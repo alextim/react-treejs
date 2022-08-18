@@ -10,9 +10,9 @@ const optionAll = { value: allValue, label: 'All' };
 const SearchForm = () => {
   const [color, setColor] = useState(allValue);
 
-  const items = useAppStore((state) => state.items);
-  const filtered = useAppStore((state) => state.filtered);
-  const actions = useAppStore((state) => state.actions);
+  const items = useAppStore(({ items }) => items);
+  const filtered = useAppStore(({ filtered }) => filtered);
+  const filter = useAppStore(({ filter }) => filter);
 
   const colors = [...new Set(items.map((item) => item.color))];
   const options = [optionAll, ...colors.map((color) => ({ value: color || '', label: color || '' }))];
@@ -22,10 +22,10 @@ const SearchForm = () => {
     setColor(() => value);
 
     if (value === allValue) {
-      actions.filter.clear();
+      filter.clear();
     } else {
       const predicat = (item: DataItem) => item.color === value;
-      actions.filter.set(predicat);
+      filter.set(predicat);
     }
   }, []);
 

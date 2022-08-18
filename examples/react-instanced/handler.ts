@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import type { Handler } from 'vite-plugin-mix';
 
-import routes from './handler.routes';
+
 
 const API_NAME = '/api';
 const FOLDER_NAME = 'routes';

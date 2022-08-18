@@ -14,7 +14,6 @@
     "dev": "turbo run dev --scope=@example/react-instanced",
     "dev:js": "turbo run dev --scope=@example/js-instanced",
     "dev:js-s": "turbo run dev --scope=@example/js-simple",
-    "build:json": "turbo run build --no-deps --scope=at-shared",
     "build": "turbo run build --scope=@example/react-instanced",
     "build:examples": "turbo run build  --concurrency=1 --scope=\"@example/*\"",
     "preview": "turbo run preview --scope=@example/react-instanced",
@@ -41,7 +40,7 @@
     "turbo": "^1.4.3",
     "typescript": "^4.7.4",
     "vite": "^3.0.8",
-    "vite-plugin-mix": "^0.3.1"
+    "vite-node": "^0.22.1"
   },
   "engines": {
     "pnpm": ">=7.0.0"

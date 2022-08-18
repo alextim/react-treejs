@@ -15,6 +15,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["src", "../../examples/react-instanced/src/helpers/palettesMatertials.ts", "../../examples/react-instanced/src/helpers/getPaletteMaterial.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

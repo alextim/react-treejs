@@ -1,7 +1,7 @@
 import { useAppStore } from '@/store';
 
 const Count = () => {
-  const items = useAppStore((state) => state.items);
+  const items = useAppStore(({ items }) => items);
   return (
     <span>{items.length}</span>
   );

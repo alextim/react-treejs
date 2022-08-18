@@ -4,20 +4,16 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "pnpm run create-data",
-    "create-data": "vite-node scripts/create-data.ts",
     "typecheck": "tsc --noEmit --pretty"
   },
   "peerDependencies": {
-    "nanoid": "^0.0.1",
-    "three": "^0.143.0"
+    "nanoid": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.6",
     "@types/nanoid": "^2.1.0",
-    "@types/three": "^0.143.1",
     "typescript": "^4.7.4",
     "vite": "^3.0.8",
-    "vite-node": "0.22.0"
+    "vite-node": "0.22.1"
   }
 }

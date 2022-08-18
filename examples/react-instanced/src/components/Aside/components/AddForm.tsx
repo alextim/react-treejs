@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 import { useAppStore } from '@/store';
 
 const AddForm = () => {
-  const actions = useAppStore(({ actions }) => actions);
+  const add = useAppStore(({ add }) => add);
   const onClick: React.MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
     e.preventDefault();
-    actions.add();
+    add();
     // boxesRef.current?.updateLast();
   }, []);
   return (

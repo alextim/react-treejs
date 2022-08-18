@@ -13,9 +13,9 @@ type ListItem = {
 };
 
 const ItemList = () => {
-  const items = useAppStore((state) => state.items);
-  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
-  const actions = useAppStore((state) => state.actions);
+  const items = useAppStore(({ items }) => items);
+  const selectedInstanceId = useAppStore(({ selectedInstanceId }) => selectedInstanceId);
+  const selection = useAppStore(({ selection }) => selection);
 
   const filteredItems: ListItem[] = [];
   for (let i = 0; i < items.length; i++) {
@@ -33,7 +33,7 @@ const ItemList = () => {
     const attr = el.getAttribute('data-id');
     const instanceId = attr ? parseInt(attr) : undefined;
     console.log(instanceId)
-    actions.selection.toggle(instanceId);
+    selection.toggle(instanceId);
   }
 
   const Row = ({ data, index, style }: { data: ListItem[], index: number, style: any }) => {

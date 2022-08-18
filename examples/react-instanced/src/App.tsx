@@ -12,12 +12,14 @@ import Aside from './components/Aside';
 const App = () => {
   const boxesRef = useRef<BoxesHandlers>(null);
 
-  const actions = useAppStore(({ actions }) => actions);
-  const loading = useAppStore((state) => state.loading);
-  const error = useAppStore((state) => state.error);
+  const loadAsync = useAppStore(({ loadAsync }) => loadAsync);
+  const loading = useAppStore(({ loading }) => loading);
+  const error = useAppStore(({ error }) => error);
+  const selection = useAppStore(({ selection }) => selection);
+  const remove = useAppStore(({ remove }) => remove);
 
   useEffect(() => {
-    actions.loadAsync();
+    loadAsync();
   }, []);
 
   if (loading) {
@@ -30,12 +32,12 @@ const App = () => {
 
 
   const toggleSelection = (id: number | undefined) => {
-    actions.selection.toggle(id);
+    selection.toggle(id);
   };
 
   const deleteItem = (id: number | undefined) => {
     if (id !== undefined) {
-      actions.remove(id)
+      remove(id)
       // boxesRef.current?.updateAll();
     }
   };

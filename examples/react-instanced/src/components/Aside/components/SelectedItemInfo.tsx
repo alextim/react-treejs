@@ -4,14 +4,14 @@ import { DataItem, Point3D } from '@/at-shared';
 import { useAppStore } from '@/store';
 
 const SelectedItemInfo = () => {
-  const items = useAppStore((state) => state.items);
-  const selectedInstanceId = useAppStore((state) => state.selectedInstanceId);
-  const actions = useAppStore((state) => state.actions);
+  const items = useAppStore(({ items }) => items);
+  const selectedInstanceId = useAppStore(({ selectedInstanceId }) => selectedInstanceId);
+  const remove = useAppStore(({ remove }) => remove);
 
   const onClick: React.MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
     e.preventDefault();
     if (selectedInstanceId !== undefined) {
-      actions.remove(selectedInstanceId);
+      remove(selectedInstanceId);
       // boxesRef.current?.updateLast();
     }
   }, [selectedInstanceId]);
