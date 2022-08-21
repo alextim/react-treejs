@@ -1,5 +1,5 @@
 import type { DataItem } from '@/at-shared';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useAppStore } from '@/store';
 import Dropdown from '@/components/Dropdown';
 
@@ -14,8 +14,10 @@ const SearchForm = () => {
   const filtered = useAppStore(({ filtered }) => filtered);
   const filter = useAppStore(({ filter }) => filter);
 
-  const colors = [...new Set(items.map((item) => item.color))];
-  const options = [optionAll, ...colors.map((color) => ({ value: color || '', label: color || '' }))];
+  const options = useMemo(() => {
+    const colors = [...new Set(items.map((item) => item.color))];
+    return [optionAll, ...colors.map((color) => ({ value: color || '', label: color || '' }))];
+  }, []);
 
   const onChange: React.ChangeEventHandler<HTMLSelectElement> = useCallback((e) => {
     const value = e.target.value;

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 type Props = {
   label: string;
   value: string;
@@ -21,4 +22,4 @@ const Dropdown = ({ label, value, options, onChange }: Props) => {
   );
 };
 
-export default Dropdown;
+export default memo(Dropdown);

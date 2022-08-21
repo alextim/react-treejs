@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import mockServer from './vite-plugin-mock-server';
+import mockServer from 'vite-plugin-simple-json-server';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-
-import mockHandlers from './mock/mock-handlers';
+import { generateLinesData } from './src/shared/helpers/generate-data';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,7 +13,17 @@ export default defineConfig({
   plugins: [
     react(),
     mockServer({
-      handlers: mockHandlers,
+      handlers: [
+        {
+          pattern: '/api/lines',
+          method: 'GET',
+          handle(req, res) {
+            const data = generateLinesData();
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(data));
+          }
+        }
+      ]
     }),
   ],
   /*
