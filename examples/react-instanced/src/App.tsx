@@ -8,23 +8,26 @@ import Layout from './components/Layout/Layout';
 import Content3D from './components/3d/Content3D';
 import { BoxesHandlers } from './components/3d/InstancedBoxes';
 import Aside from './components/Aside';
+import CircularProgressBar from './components/CircularProgressBar';
 
 const App = () => {
   const boxesRef = useRef<BoxesHandlers>(null);
 
-  const loadAsync = useAppStore(({ loadAsync }) => loadAsync);
-  const loading = useAppStore(({ loading }) => loading);
+  const loadLines = useAppStore(({ loadLines }) => loadLines);
+  const loadItems = useAppStore(({ loadItems }) => loadItems);
   const error = useAppStore(({ error }) => error);
   const selection = useAppStore(({ selection }) => selection);
   const remove = useAppStore(({ remove }) => remove);
 
-  useEffect(() => {
-    loadAsync();
-  }, []);
+  const progressIndicator = useAppStore(({ progressIndicator }) => progressIndicator);
+  const itemsLoading = useAppStore(({ itemsLoading }) => itemsLoading);
+  const linesLoading = useAppStore(({ linesLoading }) => linesLoading);
 
-  if (loading) {
-    return <div>Loading</div>;
-  }
+
+  useEffect(() => {
+    loadLines();
+    loadItems();
+  }, []);
 
   if (error) {
     return <div>{error}</div>;
@@ -41,11 +44,24 @@ const App = () => {
       // boxesRef.current?.updateAll();
     }
   };
-//
 
   return (
     <Layout aside={< Aside />}>
-      <Content3D ref={boxesRef} linesColor={options.edgeColor} onClick={toggleSelection} />
+      { !itemsLoading && !linesLoading ? (
+        <Content3D ref={boxesRef} linesColor={options.edgeColor} onClick={toggleSelection} />
+      ) : (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+          <CircularProgressBar
+            maxValue={100}
+            selectedValue={(Math.floor(progressIndicator * 100))}
+            label="Loading"
+            textColor="#f00"
+            radius={100}
+            activeStrokeColor="#cc6600"
+            withGradient
+          />
+        </div>
+       )}
     </Layout>
   );
 

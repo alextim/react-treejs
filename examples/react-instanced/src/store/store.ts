@@ -11,7 +11,9 @@ type AppState = {
   items: DataItem[];
   lines: Point2D[];
 
-  loading: boolean;
+  progressIndicator: number;
+  linesLoading: boolean;
+  itemsLoading: boolean;
   error: any;
 
   added: number;
@@ -20,7 +22,8 @@ type AppState = {
 };
 
 type Actions = {
-  loadAsync: () => void;
+  loadItems: () => void;
+  loadLines: () => void;
   add: () => void;
   remove: (instanceId: number) => void;
   selection: {
@@ -40,7 +43,10 @@ const initialState: AppState = {
   items: [],
   lines: [],
 
-  loading: false,
+  progressIndicator: 0,
+  itemsLoading: false,
+
+  linesLoading: false,
   error: null,
 
   added: 0,
@@ -48,31 +54,66 @@ const initialState: AppState = {
   selectedInstanceId: undefined,
 };
 
+const fetchApi = async (url: string) => {
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    const err = await resp.text();
+    throw new Error(err);
+  }
+
+  const result = await resp.json();
+
+  return result;
+};
+
 const useAppStore = create<Store, ZustandDevtools>(
   devtools((set) => ({
     ...initialState,
 
-    async loadAsync() {
-      set(() => ({ loading: true }));
+    async loadItems() {
+      set(() => ({ itemsLoading: true, progressIndicator: 0 }));
       try {
-        const urls = [
-          import.meta.env.VITE_ITEMS_API,
-          import.meta.env.VITE_LINES_API,
-        ];
-        const [items, lines] = await Promise.all(urls.map(async (url) => {
-          const resp = await fetch(url);
-          if (!resp.ok) {
-            const err = await resp.text();
-            throw new Error(err)
-          }
-          const result = await resp.json();
-          return result;
+        const { count: itemsCount } = await fetchApi(import.meta.env.VITE_ITEM_COUNT_API);
+        const limit = parseInt(import.meta.env.VITE_ITEM_LIMIT);
+        const urls: string[] = [];
+        for (let offset = 0; offset < itemsCount + limit; offset += limit) {
+          const url = `${import.meta.env.VITE_ITEM_API}?limit=${limit}&offset=${offset}`;
+          urls.push(url);
+        }
+
+        const n = urls.length;
+        const chunks = await Promise.all(urls.map(async (url, i) => {
+
+          const chunk = await fetchApi(url);
+          set(() => ({ progressIndicator: i / n }));
+          return chunk;
+
         }));
-        set(() => ({ items, lines }));
+
+        const items = chunks.flat();
+
+        set(() => ({ items }));
       } catch (err: any) {
         set({ error: err.toString() })
       } finally {
-        set(() => ({ loading: false }));
+        set(() => ({ itemsLoading: false, progressIndicator: 0 }));
+      }
+    },
+
+    async loadLines() {
+      set(() => ({ linesLoading: true }));
+      try {
+        const resp = await fetch(import.meta.env.VITE_LINE_API);
+        if (!resp.ok) {
+          const err = await resp.text();
+          throw new Error(err);
+        }
+        const lines = await resp.json();
+        set(() => ({ lines }));
+      } catch (err: any) {
+        set({ error: err.toString() })
+      } finally {
+        set(() => ({ linesLoading: false }));
       }
     },
 

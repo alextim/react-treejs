@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef, useMemo, memo } from 'react';
 import * as THREE from 'three'
 
 import type { Point2D, Point3D } from '@/at-shared';
@@ -59,4 +59,4 @@ const InstancedLines = ({ items, offset: [dx, dz1, dz2], color }: Props) => {
   );
 };
 
-export default InstancedLines;
+export default memo(InstancedLines);

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, forwardRef } from 'react';
+import { useRef, forwardRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stats } from '@react-three/drei';
 
@@ -6,8 +6,9 @@ import { linesOffset } from '@/at-shared';
 import { useAppStore } from '@/store';
 
 import Lights from '../Lights';
-import Boxes from '../InstancedBoxes';
+import Boxes from '../InstancedBoxes/InstancedBoxes2';
 import Lines from '../InstancedLines';
+
 
 type Props = {
   linesColor: string;
@@ -16,37 +17,31 @@ type Props = {
 
 const Content3D = forwardRef(({ linesColor, onClick }: Props, boxesRef: any) => {
   const domContent = useRef<HTMLCanvasElement>(null);
-  const [aspect, setAspect] = useState(1);
-
   const items = useAppStore(({ items }) => items);
-  const lines = useAppStore(({ lines }) => lines);
   const selectedInstanceId = useAppStore(({ selectedInstanceId }) => selectedInstanceId);
 
-  useEffect(() => {
-    const resizeHandler = () => {
-      const el: HTMLCanvasElement = domContent.current!;
-      setAspect(el.clientWidth / el.clientHeight);
-    };
-    resizeHandler();
-    window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
+  const lines = useAppStore(({ lines }) => lines);
 
+  // l={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
+  /*()
+  if (itemsLoading || linesLoading) {
+    return <div>Loading</div>;
+  }
+  */
   return (
-      <Canvas ref={domContent}
-        gl={{ antialias: true, physicallyCorrectLights: true, pixelRatio: window.devicePixelRatio, alpha: false }}
-        camera={{ aspect, fov: 35, position: [-4, 4, 200], near: 0.1, far: 1000 }}
-      >
-        <color attach="background" args={[0, 0xfff, 0]} />
-        <axesHelper args={[20]} />
-        <Lights />
-        <Boxes ref={boxesRef} items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
-        <Lines items={lines} offset={linesOffset} color={linesColor} />
-        <OrbitControls makeDefault dampingFactor={0.3} />
-        <Stats />
-      </Canvas>
-  );
+    <Canvas ref={domContent}
+      gl={{ pixelRatio: window.devicePixelRatio }}
+      camera={{ fov: 35, position: [-4, 4, 200], near: 0.1, far: 1000 }}
+    >
+      <color attach="background" args={[0, 0xfff, 0]} />
+      <axesHelper args={[20]} />
+      <Lights />
+      <OrbitControls makeDefault dampingFactor={0.3} />
 
+      <Boxes items={items} selectedInstanceId={selectedInstanceId} onClick={onClick} />
+      <Lines items={lines} offset={linesOffset} color={linesColor} />
+    </Canvas>
+  );
 });
 
 export default Content3D;

@@ -4,10 +4,10 @@ importers:
 
   .:
     specifiers:
-      '@react-three/drei': ^9.23.1
-      '@react-three/fiber': ^8.4.1
+      '@react-three/drei': ^9.23.3
+      '@react-three/fiber': ^8.6.0
       '@types/nanoid': ^2.1.0
-      '@types/node': ^18.7.8
+      '@types/node': ^18.7.9
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@types/three': ^0.143.1
@@ -21,15 +21,15 @@ importers:
       vite: ^3.0.9
       vite-node: ^0.22.1
     dependencies:
-      '@react-three/drei': 9.23.1_ro6di3s5eojfucyculy3b6r5vq
-      '@react-three/fiber': 8.4.1_f72olm6mn3unzgg4exeiaoxanm
+      '@react-three/drei': 9.23.3_o6o4yvbil3h6n6ahlnvnzgggwq
+      '@react-three/fiber': 8.6.0_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       three: 0.143.0
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/node': 18.7.8
+      '@types/node': 18.7.9
       '@types/react': 18.0.17
       '@types/react-dom': 18.0.6
       '@types/three': 0.143.1
@@ -76,8 +76,8 @@ importers:
   examples/react-instanced:
     specifiers:
       '@howiefh/ant-path-matcher': ^0.0.4
-      '@react-three/drei': ^9.23.1
-      '@react-three/fiber': ^8.4.1
+      '@react-three/drei': ^9.23.3
+      '@react-three/fiber': ^8.6.0
       '@types/nanoid': ^2.1.0
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
@@ -97,18 +97,18 @@ importers:
       vite: ^3.0.9
       vite-node: 0.22.1
       vite-plugin-mock-server: ^1.0.4
-      vite-plugin-simple-json-server: ^0.1.1
-      zustand: ^4.1.0
+      vite-plugin-simple-json-server: ^0.2.0
+      zustand: ^4.1.1
     dependencies:
-      '@react-three/drei': 9.23.1_ro6di3s5eojfucyculy3b6r5vq
-      '@react-three/fiber': 8.4.1_f72olm6mn3unzgg4exeiaoxanm
+      '@react-three/drei': 9.23.3_o6o4yvbil3h6n6ahlnvnzgggwq
+      '@react-three/fiber': 8.6.0_f72olm6mn3unzgg4exeiaoxanm
       nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-virtualized-auto-sizer: 1.0.6_biqbaboplfbrettd7655fr4n2y
       react-window: 1.8.7_biqbaboplfbrettd7655fr4n2y
       three: 0.143.0
-      zustand: 4.1.0_react@18.2.0
+      zustand: 4.1.1_react@18.2.0
     devDependencies:
       '@howiefh/ant-path-matcher': 0.0.4
       '@types/nanoid': 2.1.0
@@ -124,18 +124,18 @@ importers:
       vite: 3.0.9
       vite-node: 0.22.1
       vite-plugin-mock-server: 1.0.4
-      vite-plugin-simple-json-server: 0.1.1_vite@3.0.9
+      vite-plugin-simple-json-server: 0.2.0_vite@3.0.9
 
   packages/shared:
     specifiers:
       '@types/nanoid': ^2.1.0
-      '@types/node': ^18.7.8
+      '@types/node': ^18.7.9
       typescript: ^4.7.4
       vite: ^3.0.9
       vite-node: 0.22.1
     devDependencies:
       '@types/nanoid': 2.1.0
-      '@types/node': 18.7.8
+      '@types/node': 18.7.9
       typescript: 4.7.4
       vite: 3.0.9
       vite-node: 0.22.1
@@ -539,7 +539,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-spring/three/9.5.2_ylafxqpvejuzoputtuf23bkg7a:
+  /@react-spring/three/9.5.2_6ovrzwfaplyi3f62bs3r7o7kyq:
     resolution: {integrity: sha512-3H7Lv8BJZ3dajh0yJA3m9rEbqz5ZNrTCAkhVOeLqgvBlcWU5qVs4luYA1Z7H4vZnLqVtzv+kHAyg3XIpuTOXhQ==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
@@ -550,7 +550,7 @@ packages:
       '@react-spring/core': 9.5.2_react@18.2.0
       '@react-spring/shared': 9.5.2_react@18.2.0
       '@react-spring/types': 9.5.2
-      '@react-three/fiber': 8.4.1_f72olm6mn3unzgg4exeiaoxanm
+      '@react-three/fiber': 8.6.0_f72olm6mn3unzgg4exeiaoxanm
       react: 18.2.0
       three: 0.143.0
     dev: false
@@ -559,8 +559,8 @@ packages:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
     dev: false
 
-  /@react-three/drei/9.23.1_ro6di3s5eojfucyculy3b6r5vq:
-    resolution: {integrity: sha512-isSHkDGtOVXdfEm1wG7pMJIk33o2ZSWjikLNS1xX8XKWJEa9bpGjrCBy8ZI+Q/C7Fjk6Y70xrom0x8LidGEz5A==}
+  /@react-three/drei/9.23.3_o6o4yvbil3h6n6ahlnvnzgggwq:
+    resolution: {integrity: sha512-G8Da/dcB2SC0abGrycqqi9RAQWF7t65YlItw0Wt6t1eCyWXdDQP7PU0/f2CJskRqXBwuH160a/JuJzCRzw4w9Q==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -571,8 +571,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.18.9
-      '@react-spring/three': 9.5.2_ylafxqpvejuzoputtuf23bkg7a
-      '@react-three/fiber': 8.4.1_f72olm6mn3unzgg4exeiaoxanm
+      '@react-spring/three': 9.5.2_6ovrzwfaplyi3f62bs3r7o7kyq
+      '@react-three/fiber': 8.6.0_f72olm6mn3unzgg4exeiaoxanm
       '@use-gesture/react': 10.2.18_react@18.2.0
       detect-gpu: 4.0.35
       glsl-noise: 0.0.0
@@ -587,14 +587,14 @@ packages:
       suspend-react: 0.0.8_react@18.2.0
       three: 0.143.0
       three-mesh-bvh: 0.5.15_three@0.143.0
-      three-stdlib: 2.13.1_three@0.143.0
+      three-stdlib: 2.14.1_three@0.143.0
       troika-three-text: 0.46.4_three@0.143.0
       utility-types: 3.10.0
       zustand: 3.7.2_react@18.2.0
     dev: false
 
-  /@react-three/fiber/8.4.1_f72olm6mn3unzgg4exeiaoxanm:
-    resolution: {integrity: sha512-08FjZLr2F5oDqaOvf/o8tl9OgPkxqpB/nbFQIpMUjAChyoHVcvJh7z2OmFDFXetNA/nS5Zw+7lEMVE9FvOoQmQ==}
+  /@react-three/fiber/8.6.0_f72olm6mn3unzgg4exeiaoxanm:
+    resolution: {integrity: sha512-bdSrjPkcoGYqLsKL5pZHR3SrkzUyxP+VA7wKWhMQPZR+zUYhvw1IpUT+v/d/jlk7sKHlQS8KmGVvM91Ug1QJhA==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -637,8 +637,8 @@ packages:
     resolution: {integrity: sha512-EdxgKRXgYsNITy5mjjXjVE/CS8YENSdhiagGrLqjG0pvA2owgJ6i4l7wy/PFZGC0B1/H20lWKN7ONVDNYDZm7A==}
     dev: true
 
-  /@types/node/18.7.8:
-    resolution: {integrity: sha512-/YP55EMK2341JkODUb8DM9O0x1SIz2aBvyF33Uf1c76St3VpsMXEIW0nxuKkq/5cxnbz0RD9cfwNZHEAZQD3ag==}
+  /@types/node/18.7.9:
+    resolution: {integrity: sha512-0N5Y1XAdcl865nDdjbO0m3T6FdmQ4ijE89/urOHLREyTXbpMWbSafx9y7XIsgWGtwUP2iYTinLyyW3FatAxBLQ==}
     dev: true
 
   /@types/prop-types/15.7.5:
@@ -1394,8 +1394,8 @@ packages:
     resolution: {integrity: sha512-DRf0QjnNeCUds3xTjKlQQ3DpJD51GvDjJfnxUVWg6PZTo2otSm+slzNAxU/35hF8/oJIKoG9slq30JYOsF2azg==}
     dev: true
 
-  /ktx-parse/0.2.2:
-    resolution: {integrity: sha512-cFBc1jnGG2WlUf52NbDUXK2obJ+Mo9WUkBRvr6tP6CKxRMvZwDDFNV3JAS4cewETp5KyexByfWm9sm+O8AffiQ==}
+  /ktx-parse/0.4.5:
+    resolution: {integrity: sha512-MK3FOody4TXbFf8Yqv7EBbySw7aPvEcPX++Ipt6Sox+/YMFvR5xaTyhfNSk1AEmMy+RYIw81ctN4IMxCB8OAlg==}
     dev: false
 
   /lodash.omit/4.5.0:
@@ -1726,8 +1726,8 @@ packages:
       three: 0.143.0
     dev: false
 
-  /three-stdlib/2.13.1_three@0.143.0:
-    resolution: {integrity: sha512-VNlycpT4gpHclIQFZz+IjtMAjwybeNEjqogGTqtEWiBQ73ySYJEyy+M6HhG37V7PKjyr7yBBqRAUzAZW8Jk4sw==}
+  /three-stdlib/2.14.1_three@0.143.0:
+    resolution: {integrity: sha512-JdwqpZU6boRty9rek+5RIyXE8/OfGh5aMdX67oqhGBoVdM7FH6BHz8U3Yk1tqXcA2/s9nNPxkv/ci6LSW5hBcQ==}
     peerDependencies:
       three: '>=0.122.0'
     dependencies:
@@ -1736,7 +1736,7 @@ packages:
       chevrotain: 10.1.2
       draco3d: 1.5.3
       fflate: 0.6.10
-      ktx-parse: 0.2.2
+      ktx-parse: 0.4.5
       mmd-parser: 1.0.4
       opentype.js: 1.3.4
       potpack: 1.0.2
@@ -1979,8 +1979,8 @@ packages:
       chokidar: 3.5.3
     dev: true
 
-  /vite-plugin-simple-json-server/0.1.1_vite@3.0.9:
-    resolution: {integrity: sha512-cAqHVmQ0bIOPiplTHM+OTbeNnjbprhGxwkte6mGaYQ3NF3MjFeFpw4DrE4POX2t1nnD4UYSTlApP88ABU/reiQ==}
+  /vite-plugin-simple-json-server/0.2.0_vite@3.0.9:
+    resolution: {integrity: sha512-zDiFVkeMsq4l1PRSBEU6qlfxygTg/j1eSPAIzDysMGIh0/t9cemRostXZ7HdGlzy/1yIjO4vLV6iUko11uq7pw==}
     peerDependencies:
       vite: ^3.0.0
     dependencies:
@@ -2039,8 +2039,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /zustand/4.1.0_react@18.2.0:
-    resolution: {integrity: sha512-ba39yDM90wFHiCO5AuoP2Tr1vSY5Eggduk0ou91mWL/qKnz2sBq8AcdFoticOftt7AfIHRBENI7WfjkUrqB3vA==}
+  /zustand/4.1.1_react@18.2.0:
+    resolution: {integrity: sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'

@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { FixedSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
@@ -24,7 +25,7 @@ const ItemList = () => {
     }
   }
 
-  const dblClickHandler: React.MouseEventHandler<HTMLElement> = (e) => {
+  const dblClickHandler: React.MouseEventHandler<HTMLElement> = useCallback((e) => {
     e.preventDefault();
     let el = e.target as HTMLElement;
     if (!el.className.startsWith('vl_r')) {
@@ -32,9 +33,9 @@ const ItemList = () => {
     }
     const attr = el.getAttribute('data-id');
     const instanceId = attr ? parseInt(attr) : undefined;
-    console.log(instanceId)
+    // console.log(instanceId)
     selection.toggle(instanceId);
-  }
+  }, []);
 
   const Row = ({ data, index, style }: { data: ListItem[], index: number, style: any }) => {
     const { instanceId, item } = data[index];
