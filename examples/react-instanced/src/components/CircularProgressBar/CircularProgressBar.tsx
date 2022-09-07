@@ -31,6 +31,7 @@ const Direction = {
 type Props = {
     maxValue?: number,
     selectedValue?: number,
+    selectedText?: string,
     radius?: number,
     strokeWidth?: number,
     label?: string,
@@ -49,6 +50,7 @@ type Props = {
 const defaultProps: Props = {
   maxValue: MAX_VALUE,
   selectedValue: 0,
+  selectedText: '',
   radius: DEFAULT_RADIUS,
   strokeWidth: DEFAULT_RADIUS / 10,
   label: '',
@@ -65,7 +67,8 @@ const defaultProps: Props = {
 
 const CircularProgressBar = ({
     maxValue,
-    selectedValue,
+  selectedValue,
+  selectedText,
     radius,
     strokeWidth,
     label,
@@ -81,6 +84,7 @@ const CircularProgressBar = ({
 }: Props = defaultProps) => {
   maxValue = maxValue ?? defaultProps.maxValue;
   selectedValue = selectedValue ?? defaultProps.selectedValue;
+  selectedText = selectedText ?? defaultProps.selectedText;
   radius = radius ?? defaultProps.radius;
   strokeWidth = strokeWidth ?? defaultProps.strokeWidth;
   activeStrokeColor = activeStrokeColor ?? defaultProps.activeStrokeColor;
@@ -174,7 +178,7 @@ const CircularProgressBar = ({
                 y={textValueY}
                 textAnchor="middle"
             >
-                {selectedValue}
+                {selectedValue}{selectedText}
             </text>
             {!!label?.length && labelView}
         </svg>

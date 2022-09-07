@@ -53,7 +53,9 @@ const App = () => {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
           <CircularProgressBar
             maxValue={100}
-            selectedValue={(Math.floor(progressIndicator * 100))}
+              selectedValue={(Math.floor(progressIndicator * 100))}
+              selectedText="%"
+
             label="Loading"
             textColor="#f00"
             radius={100}

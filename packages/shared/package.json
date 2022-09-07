@@ -10,10 +10,10 @@
     "nanoid": "^0.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.7.9",
+    "@types/node": "^18.7.15",
     "@types/nanoid": "^2.1.0",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.9",
-    "vite-node": "0.22.1"
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0",
+    "vite-node": "0.23.1"
   }
 }

@@ -73,7 +73,7 @@ const useAppStore = create<Store, ZustandDevtools>(
     async loadItems() {
       set(() => ({ itemsLoading: true, progressIndicator: 0 }));
       try {
-        const { count: itemsCount } = await fetchApi(import.meta.env.VITE_ITEM_COUNT_API);
+        const { count: itemsCount } = await fetchApi(`${import.meta.env.VITE_ITEM_API}?count`);
         const limit = parseInt(import.meta.env.VITE_ITEM_LIMIT);
         const urls: string[] = [];
         for (let offset = 0; offset < itemsCount + limit; offset += limit) {
